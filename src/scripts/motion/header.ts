@@ -37,7 +37,9 @@ export function headerModule(): MotionModule | null {
       slot.style.height = "";
       headerHeight = header.offsetHeight;
       slot.style.height = `${headerHeight}px`;
-      stickyTop = parseFloat(getComputedStyle(root).getPropertyValue("--sticky-top")) || 0;
+      header.classList.add("is-fixed"); // resolves the real fixed `top` (including any safe-area inset)
+      stickyTop = parseFloat(getComputedStyle(header).top) || 0;
+      header.classList.remove("is-fixed");
       if (curve) {
         curveTop = docTop(curve);
         curveHeight = curve.offsetHeight;

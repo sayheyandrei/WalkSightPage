@@ -2,7 +2,7 @@
 import { APP_STORE_URL } from "../config/site";
 
 interface Props {
-  variant?: "primary" | "inverse" | "compact" | "float";
+  variant?: "primary" | "inverse" | "compact";
   class?: string;
 }
 
@@ -11,7 +11,6 @@ const classes = [
   "btn",
   variant === "inverse" && "btn--inverse",
   variant === "compact" && "btn--compact",
-  variant === "float" && "btn--float",
   className,
 ];
 ---
@@ -24,5 +23,5 @@ const classes = [
   data-store-url-missing={APP_STORE_URL ? undefined : ""}
 >
   <span class="btn__icon" aria-hidden="true"></span>
-  <span class:list={[variant === "float" && "visually-hidden"]}>Download app</span>
+  <span>Download app</span>
 </a>

@@ -10,7 +10,9 @@
   position: relative;
   overflow: clip;
   min-height: var(--hero-min-h);
-  padding-block: var(--hero-py);
+  /* the hero background runs under the status bar (viewport-fit=cover) */
+  padding-top: calc(var(--hero-py) + env(safe-area-inset-top, 0px));
+  padding-bottom: var(--hero-py);
   background: var(--hero-background);
 }
 
@@ -694,7 +696,9 @@
   flex-direction: column;
   align-items: center;
   gap: var(--footer-gap);
-  padding-block: var(--footer-py);
+  padding-top: var(--footer-py);
+  /* the footer colour reaches the bottom edge of the screen, under the home indicator */
+  padding-bottom: calc(var(--footer-py) + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-nav {

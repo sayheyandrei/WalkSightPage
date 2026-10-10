@@ -11,7 +11,10 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  background: var(--background);
+  /* Outside the page (status bar, bounce, bottom safe area) the canvas shows the hero colour at the
+     top and the inverse colour at the bottom, never a white page background. */
+  background: linear-gradient(to bottom, var(--hero-background) 50%, var(--inverse-background) 50%);
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -207,41 +210,6 @@ button {
   }
 }
 
-/* Floating call-to-action of the mobile sticky state (Figma 945:33069): icon only, 64x64,
-   12px radius, 16px from the right and bottom edges. Shown/hidden by the CTA visibility module. */
-.btn--float {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 50;
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  padding: 0;
-  gap: 0;
-  border-radius: 12px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0.3s;
-}
-
-.is-stuck:not(.cta-in-view) .btn--float {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: 0s;
-}
-
-@media (min-width: 768px) {
-  .btn--float {
-    display: none;
-  }
-}
-
 /* ------------------------------------------------------------------ */
 /* Header                                                              */
 /* ------------------------------------------------------------------ */
@@ -382,7 +350,6 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn--float,
   .skip-link,
   .btn,
   .round-btn {

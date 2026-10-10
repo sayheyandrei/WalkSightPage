@@ -29,11 +29,11 @@ const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/
 <html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
-    <meta id="meta-theme-color" name="theme-color" content="#ffffff" />
+    <meta id="meta-theme-color" name="theme-color" content="#f0f0f0" />
     {canonical && <link rel="canonical" href={canonical} />}
 
     <meta property="og:type" content="website" />
@@ -71,7 +71,7 @@ const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/
         root.style.colorScheme = theme;
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) root.classList.add("motion-ok");
         var meta = document.getElementById("meta-theme-color");
-        if (meta) meta.setAttribute("content", theme === "dark" ? "#111111" : "#ffffff");
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#050505" : "#f0f0f0");
       })();
     </script>
   </head>
