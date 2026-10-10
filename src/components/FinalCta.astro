@@ -4,18 +4,22 @@ import DownloadButton from "./DownloadButton.astro";
 import Phone from "./Phone.astro";
 ---
 
-<div class="curve" aria-hidden="true">
-  <img class="u-light" src={withBase("/assets/svg/curve-light.svg")} width="1440" height="201" alt="" loading="lazy" decoding="async" />
-  <img class="u-dark" src={withBase("/assets/svg/curve-dark.svg")} width="1920" height="268" alt="" loading="lazy" decoding="async" />
+<!-- Scroll-morphing transition: the page-coloured cap (the lens between the top edge and the
+     curve) grows from flat (scaleY 0) to the exact Figma curve (scaleY 1). -->
+<div class="curve" aria-hidden="true" data-curve>
+  <svg class="curve__svg" viewBox="0 0 1440 201" preserveAspectRatio="none" focusable="false">
+    <rect class="curve__fill" width="1440" height="201" />
+    <path class="curve__cap" data-curve-cap d="M0 0L332.144 58.1253C588.765 103.034 851.235 103.034 1107.86 58.1252L1440 0Z" />
+  </svg>
 </div>
 
-<section class="final" aria-labelledby="final-title">
-  <div class="final__bg" aria-hidden="true">
+<section class="final" aria-labelledby="final-title" data-final>
+  <div class="final__bg" aria-hidden="true" data-final-map>
     <img class="u-light" src={withBase("/assets/svg/final-bg-light.svg")} width="1440" height="1500" alt="" loading="lazy" decoding="async" />
     <img class="u-dark" src={withBase("/assets/svg/final-bg-dark.svg")} width="1920" height="2000" alt="" loading="lazy" decoding="async" />
   </div>
   <div class="container final__inner">
-    <div class="intro intro--center">
+    <div class="intro intro--center reveal">
       <h2 class="display" id="final-title">Explore more<br />around you</h2>
       <p class="lead lead--b">
         Discover landmarks, viewpoints, parks, cafés and hidden gems.<br class="only-desktop" />
@@ -24,9 +28,9 @@ import Phone from "./Phone.astro";
       <DownloadButton variant="inverse" />
     </div>
   </div>
-  <img class="final__arrow u-light" src={withBase("/assets/svg/final-arrow-light.svg")} width="96" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  <img class="final__arrow u-dark" src={withBase("/assets/svg/final-arrow-dark.svg")} width="126" height="126" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  <div class="final__phone" aria-hidden="true">
+  <img class="final__arrow u-light" data-final-arrow src={withBase("/assets/svg/final-arrow-light.svg")} width="96" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="final__arrow u-dark" data-final-arrow src={withBase("/assets/svg/final-arrow-dark.svg")} width="126" height="126" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <div class="final__phone" aria-hidden="true" data-final-phone>
     <Phone variant="ring" />
   </div>
 </section>

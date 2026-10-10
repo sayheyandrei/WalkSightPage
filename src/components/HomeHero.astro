@@ -9,7 +9,9 @@ import SiteHeader from "./SiteHeader.astro";
     <div class="hero__bg-inner"></div>
   </div>
   <div class="container hero__inner">
-    <SiteHeader variant="home" path="/" id="site-header" />
+    <div class="hero__header-slot" data-header-slot>
+      <SiteHeader variant="home" path="/" id="site-header" />
+    </div>
     <div class="hero__phone">
       <Phone screen={screens.hero} eager label="WalkSight map showing nearby landmarks, cafés and parks around the user" />
     </div>

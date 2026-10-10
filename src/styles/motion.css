@@ -1,0 +1,214 @@
+/* ------------------------------------------------------------------ */
+/* Motion layer. Every animation ends at the Figma resting position.   */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --sticky-top: 40px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --sticky-top: 32px;
+  }
+}
+
+/* Hidden scrollbar; the page stays fully scrollable. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ------------------------------------------------------------------ */
+/* One header: it is fixed in place once it reaches the sticky position */
+/* ------------------------------------------------------------------ */
+
+.hero__header-slot {
+  position: relative;
+  width: 100%;
+}
+
+#site-header.is-fixed {
+  position: fixed;
+  top: var(--sticky-top);
+  left: 50%;
+  z-index: 50;
+  width: min(calc(100% - 2 * var(--gutter)), calc(1920px - 2 * var(--gutter)));
+  transform: translateX(-50%);
+}
+
+.site-header .site-header__cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .site-header.is-fixed .site-header__cta {
+    display: inline-flex;
+    animation: cta-in 0.6s var(--ease-out) both;
+  }
+}
+
+@keyframes cta-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reveal on entering the viewport                                     */
+/* ------------------------------------------------------------------ */
+
+.motion-ok .reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+}
+
+.motion-ok .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Hover polish                                                        */
+/* ------------------------------------------------------------------ */
+
+.btn {
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+.round-btn {
+  transition:
+    background-color 0.3s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .btn:not(.btn--float):hover {
+    transform: translateY(-1px);
+  }
+
+  .round-btn:hover {
+    transform: translateY(-1px) scale(1.05);
+  }
+}
+
+/* Feature cards: very soft, very large 5% black shadow, scaled with the grid. */
+.card {
+  --shadow-y: 12px;
+  --shadow-blur: 44px;
+  z-index: 0;
+  transition:
+    box-shadow 0.6s var(--ease-out),
+    z-index 0s linear 0.6s;
+}
+
+@media (min-width: 1100px) {
+  .card {
+    --shadow-y: calc(40 * var(--cu) + 24 * var(--tl));
+    --shadow-blur: calc(130 * var(--cu) + 90 * var(--tl));
+  }
+}
+
+@media (hover: hover) {
+  .card:hover {
+    z-index: 2;
+    box-shadow: 0 var(--shadow-y) var(--shadow-blur) 0 rgba(0, 0, 0, 0.05);
+    transition-delay: 0s;
+  }
+}
+
+.card:focus-within {
+  z-index: 2;
+  box-shadow: 0 var(--shadow-y) var(--shadow-blur) 0 rgba(0, 0, 0, 0.05);
+  transition-delay: 0s;
+}
+
+/* The shadow must not be clipped by the section. */
+.build {
+  overflow: visible;
+  overflow-x: clip;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll-linked build artwork                                         */
+/* ------------------------------------------------------------------ */
+
+.build__spin {
+  position: absolute;
+  inset: 0;
+  transform-origin: calc(50% + var(--union-x)) calc(var(--union-y) + var(--union-w) * 0.4024);
+}
+
+/* ------------------------------------------------------------------ */
+/* Transition curve                                                    */
+/* ------------------------------------------------------------------ */
+
+.curve__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 201;
+}
+
+.curve__fill {
+  fill: var(--inverse-background);
+}
+
+.curve__cap {
+  fill: var(--background);
+  transform-origin: 0 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion: everything rests in its Figma position              */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .btn,
+  .round-btn,
+  .card {
+    transition: none;
+  }
+
+  .site-header.is-fixed .site-header__cta {
+    animation: none;
+  }
+}

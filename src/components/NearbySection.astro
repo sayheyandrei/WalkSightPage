@@ -21,7 +21,7 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
 
 <section class="nearby" aria-labelledby="nearby-title">
   <div class="container nearby__inner">
-    <div class="intro intro--center">
+    <div class="intro intro--center reveal">
       <h2 class="display" id="nearby-title">See what’s<br />around you</h2>
       <p class="lead lead--b">
         Spot interesting places nearby and head toward whatever<br class="only-desktop" />
@@ -29,7 +29,7 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
       </p>
       <DownloadButton />
     </div>
-    <div class="stage" aria-hidden="false">
+    <div class="stage" data-orbit-stage>
       <div class="stage__ring stage__ring--3" aria-hidden="true">
         <img class="u-light" src={withBase("/assets/svg/ring-3-light.svg")} width="1340" height="1340" alt="" loading="lazy" />
         <img class="u-dark" src={withBase("/assets/svg/ring-3-dark.svg")} width="1592" height="1592" alt="" loading="lazy" />
@@ -47,7 +47,7 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
       </div>
       {
         pinPositions.map(([x, y], index) => (
-          <div class="stage__pin" style={`left:${pct(x)};top:${pct(y)}`} aria-hidden="true">
+          <div class="stage__pin" style={`left:${pct(x)};top:${pct(y)}`} data-pin-x={x} data-pin-y={y} aria-hidden="true">
             <Image class="u-light" src={pins.light[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
             <Image class="u-dark" src={pins.dark[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
           </div>

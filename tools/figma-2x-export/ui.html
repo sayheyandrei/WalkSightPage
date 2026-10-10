@@ -1,0 +1,14 @@
+<div id="s" style="font:12px sans-serif">starting…</div>
+<script>
+let pending = 0;
+onmessage = async (ev) => {
+  const m = ev.data.pluginMessage;
+  if (m.bytes) {
+    pending++;
+    try { await fetch('http://localhost:8765/save?name=' + m.name + '&w=' + m.w + '&h=' + m.h, { method: 'POST', body: m.bytes }); } catch (e) { document.getElementById('s').textContent = 'ERR ' + e; }
+    pending--;
+  }
+  if (m.progress !== undefined) document.getElementById('s').textContent = m.progress + '/' + m.total;
+  if (m.finished) { document.getElementById('s').textContent = 'done ' + m.done + ' failed ' + JSON.stringify(m.failed); fetch('http://localhost:8765/done?failed=' + encodeURIComponent(JSON.stringify(m.failed))); }
+};
+</script>

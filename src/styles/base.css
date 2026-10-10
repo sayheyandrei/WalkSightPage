@@ -12,7 +12,6 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   background: var(--background);
-  scroll-behavior: smooth;
 }
 
 body {
@@ -381,41 +380,7 @@ button {
   mask: url("/assets/svg/icon-back.svg") center / contain no-repeat;
 }
 
-/* Sticky state (dedicated Figma frames) */
-.sticky-header {
-  position: fixed;
-  top: 40px;
-  left: 50%;
-  z-index: 50;
-  width: min(calc(100% - 2 * var(--gutter)), calc(1920px - 2 * var(--gutter)));
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(-50%, -8px);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0s linear 0.2s;
-}
-
-.is-stuck .sticky-header {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
-  transition-delay: 0s;
-}
-
-@media (min-width: 768px) {
-  .sticky-header {
-    top: 32px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .sticky-header,
   .btn--float,
   .skip-link,
   .btn,

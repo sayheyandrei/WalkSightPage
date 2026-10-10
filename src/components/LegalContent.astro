@@ -22,7 +22,7 @@ function parts(paragraph: string): Array<{ text: string } | { email: true }> {
 <div class="legal">
   {
     sections.map((section) => (
-      <section class="legal__section">
+      <section class="legal__section reveal">
         <h2 class="legal__title">{section.title}</h2>
         {section.paragraphs.map((paragraph) => (
           <p class="legal__text">

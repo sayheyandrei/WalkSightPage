@@ -1,0 +1,9 @@
+{
+  "name": "WalkSight 2x export",
+  "id": "walksight-2x-export-local",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "networkAccess": { "allowedDomains": ["http://localhost:8765"], "reasoning": "Send exported PNG bytes to a local receiver" }
+}

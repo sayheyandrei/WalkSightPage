@@ -3,6 +3,7 @@ import "../styles/tokens.css";
 import "../styles/base.css";
 import "../styles/home.css";
 import "../styles/legal.css";
+import "../styles/motion.css";
 
 import {
   DEFAULT_DESCRIPTION,
@@ -68,6 +69,7 @@ const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/
         var root = document.documentElement;
         root.setAttribute("data-theme", theme);
         root.style.colorScheme = theme;
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) root.classList.add("motion-ok");
         var meta = document.getElementById("meta-theme-color");
         if (meta) meta.setAttribute("content", theme === "dark" ? "#111111" : "#ffffff");
       })();
@@ -78,7 +80,9 @@ const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/
     <slot />
     <script>
       import { initTheme } from "../scripts/theme";
+      import { initMotion } from "../scripts/motion";
       initTheme();
+      initMotion();
     </script>
   </body>
 </html>

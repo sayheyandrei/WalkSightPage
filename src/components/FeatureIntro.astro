@@ -6,7 +6,7 @@ import Phone from "./Phone.astro";
 
 <section class="explore" aria-labelledby="explore-title">
   <div class="container explore__inner">
-    <div class="intro explore__text">
+    <div class="intro explore__text reveal">
       <h1 class="display" id="explore-title">Explore more<br />around you</h1>
       <p class="lead">
         Discover landmarks, viewpoints, parks, cafés and hidden gems.<br class="only-desktop" />
@@ -14,14 +14,14 @@ import Phone from "./Phone.astro";
       </p>
       <DownloadButton />
     </div>
-    <div class="explore__row">
-      <div class="explore__phone explore__phone--place">
+    <div class="explore__row" data-explore-row>
+      <div class="explore__phone explore__phone--place" data-explore-phone="1">
         <Phone screen={screens.place} label="WalkSight place details for St John's Co-Cathedral" />
       </div>
-      <div class="explore__phone explore__phone--planner">
+      <div class="explore__phone explore__phone--planner" data-explore-phone="2">
         <Phone screen={screens.planner} label="WalkSight route planner with Auto and Manual modes, radius, length and time options" />
       </div>
-      <div class="explore__phone explore__phone--route">
+      <div class="explore__phone explore__phone--route" data-explore-phone="3">
         <Phone screen={screens.route} label="WalkSight turn-by-turn walking navigation" />
       </div>
     </div>

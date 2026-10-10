@@ -24,3 +24,7 @@ npm test         # route smoke test (run after build)
 ## Known limitation
 
 Phone screens and app cards are 1x Figma renders (higher-resolution exports were unavailable), so they are slightly soft on retina displays. The dark theme has no 375 Figma frame, so the dark mobile "Discover" sheet shows less text than the light one and fades out.
+
+## Motion
+
+`src/scripts/motion.ts` runs one Lenis instance and one `requestAnimationFrame` loop that drives every scroll-linked effect (header fixing, Explore phones, Build rotation, curve morph) plus the orbiting pins and the final-section cursor parallax. With `prefers-reduced-motion` only the header fixing stays active and everything rests in its Figma position. `tools/figma-2x-export` re-exports the raster assets at true 2x (see its README).

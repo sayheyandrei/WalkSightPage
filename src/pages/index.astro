@@ -6,11 +6,11 @@ import HomeHero from "../components/HomeHero.astro";
 import NearbySection from "../components/NearbySection.astro";
 import RouteShowcase from "../components/RouteShowcase.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import StickyHeader from "../components/StickyHeader.astro";
+import DownloadButton from "../components/DownloadButton.astro";
 ---
 
 <BaseLayout title="WalkSight — Explore More Around You" path="/" bodyClass="page-home">
-  <StickyHeader />
+  <DownloadButton variant="float" />
   <main id="main">
     <HomeHero />
     <FeatureIntro />
@@ -19,8 +19,4 @@ import StickyHeader from "../components/StickyHeader.astro";
     <FinalCta />
   </main>
   <SiteFooter />
-  <script>
-    import { initStickyHeader } from "../scripts/sticky-header";
-    initStickyHeader();
-  </script>
 </BaseLayout>

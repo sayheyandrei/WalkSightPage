@@ -7,7 +7,7 @@ import FeatureGrid from "./FeatureGrid.astro";
 <section class="build" aria-labelledby="build-title">
   <div class="container">
     <div class="build__top">
-      <div class="intro intro--center build__text">
+      <div class="intro intro--center build__text reveal">
         <h2 class="display" id="build-title">Build a walk around<br />your day</h2>
         <p class="lead">
           Choose how far you want to walk, how much time you have and what<br class="only-desktop" />
@@ -15,10 +15,12 @@ import FeatureGrid from "./FeatureGrid.astro";
         </p>
         <DownloadButton />
       </div>
-      <div class="build__art" aria-hidden="true">
+      <div class="build__art" aria-hidden="true" data-build-art>
+        <div class="build__spin" data-build-spin>
         <img class="build__union u-light" src={withBase("/assets/svg/union-light.svg")} width="1345" height="1082" alt="" loading="lazy" decoding="async" />
         <img class="build__union build__union--dark u-dark" src={withBase("/assets/svg/union-dark.svg")} width="1891" height="1510" alt="" loading="lazy" decoding="async" />
         <img class="build__arrow u-light" src={withBase("/assets/svg/arrow-light.svg")} width="301" height="301" alt="" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
     <FeatureGrid />

@@ -28,6 +28,10 @@ for (const route of routes) {
   const html = readFileSync(file, "utf8");
   check(html.includes(`<title>${titles[route]}</title>`), `${route}: wrong <title>`);
   check((html.match(/<h1[\s>]/g) ?? []).length === 1, `${route}: expected exactly one <h1>`);
+  if (route === "/") {
+    check((html.match(/<header[\s>]/g) ?? []).length === 1, "/: expected exactly one <header> (no duplicate sticky header)");
+    check(!/sticky-header/.test(html), "/: leftover sticky-header markup");
+  }
   check(/name="description"/.test(html), `${route}: missing meta description`);
   for (const href of ["/terms/", "/privacy/", "/support/"]) {
     check(html.includes(`href="${href}"`), `${route}: missing link to ${href}`);
