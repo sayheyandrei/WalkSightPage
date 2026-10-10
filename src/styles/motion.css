@@ -4,7 +4,8 @@
 
 :root {
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --sticky-top: 40px;
+  /* Figma 942:31959: the mobile sticky menu sits 24px from the top */
+  --sticky-top: 24px;
 }
 
 @media (min-width: 768px) {
@@ -191,4 +192,96 @@ html.lenis body {
   position: absolute;
   inset: 0;
   transform-origin: 50% calc(var(--final-bg-y) + var(--final-bg-w) * 0.5208);
+}
+
+/* ------------------------------------------------------------------ */
+/* Header surface skin. Only the header's look changes over the        */
+/* inverse (contrast) section; html[data-theme] and the selected       */
+/* sun / moon button are never touched.                                */
+/* ------------------------------------------------------------------ */
+
+.site-header {
+  transition: background-color 0.35s var(--ease-out);
+}
+
+.site-header .site-nav a,
+.site-header .round-btn__icon {
+  transition:
+    color 0.35s var(--ease-out),
+    background-color 0.35s var(--ease-out);
+}
+
+.site-header .btn {
+  transition:
+    opacity 0.4s var(--ease-out),
+    background-color 0.35s var(--ease-out),
+    color 0.35s var(--ease-out);
+}
+
+:root[data-theme="light"] .site-header.is-on-inverse {
+  --glass: rgba(0, 0, 0, 0.5);
+  --font-primary: #ffffff;
+  --font-disabled: rgba(255, 255, 255, 0.4);
+  --round-background: #222222;
+  --round-icon: #ffffff;
+  --round-active-icon: #111111;
+  --button-primary-background: #ffffff;
+  --button-primary-font: #222222;
+}
+
+:root[data-theme="dark"] .site-header.is-on-inverse {
+  --glass: rgba(255, 255, 255, 0.5);
+  --font-primary: #333333;
+  --font-disabled: rgba(51, 51, 51, 0.4);
+  --round-background: #ffffff;
+  --round-icon: #333333;
+  --round-active-icon: #333333;
+  --button-primary-background: #222222;
+  --button-primary-font: #ffffff;
+}
+
+/* Header logo: both variants stacked, cross-faded (the selected theme decides the base look). */
+.site-header .logo {
+  position: relative;
+}
+
+.site-header .logo .u-light,
+.site-header .logo .u-dark {
+  display: block;
+  transition: opacity 0.35s var(--ease-out);
+}
+
+.site-header .logo .u-dark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .site-header .logo .u-light,
+:root[data-theme="light"] .site-header.is-on-inverse .logo .u-light {
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .site-header .logo .u-dark,
+:root[data-theme="light"] .site-header.is-on-inverse .logo .u-dark {
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .site-header.is-on-inverse .logo .u-light {
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .site-header.is-on-inverse .logo .u-dark {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header .site-nav a,
+  .site-header .round-btn__icon,
+  .site-header .btn,
+  .site-header .logo img {
+    transition: none !important;
+  }
 }

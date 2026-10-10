@@ -1,11 +1,12 @@
 import Lenis from "lenis";
 import { buildModule } from "./motion/build";
 import { curveModule } from "./motion/curve";
-import { exploreModule } from "./motion/explore";
+import { exploreModule, initGallery } from "./motion/explore";
 import { headerModule } from "./motion/header";
 import { orbitModule } from "./motion/orbit";
 import { parallaxModule } from "./motion/parallax";
 import { cardsModule } from "./motion/cards";
+import { initCtaVisibility } from "./motion/cta";
 import { initPointer } from "./motion/pointer";
 import { initReveal } from "./motion/reveal";
 import { wordsModule } from "./motion/words";
@@ -22,6 +23,8 @@ export function initMotion() {
   const add = (module: MotionModule | null) => module && modules.push(module);
 
   add(headerModule());
+  initCtaVisibility();
+  initGallery();
 
   if (!reduce) {
     try {

@@ -207,32 +207,33 @@ button {
   }
 }
 
-/* Floating call-to-action of the mobile sticky state. */
+/* Floating call-to-action of the mobile sticky state (Figma 945:33069): icon only, 64x64,
+   12px radius, 16px from the right and bottom edges. Shown/hidden by the CTA visibility module. */
 .btn--float {
   position: fixed;
-  left: 16px;
   right: 16px;
   bottom: 16px;
   z-index: 50;
-  width: auto;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  gap: 0;
+  border-radius: 12px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
+  pointer-events: none;
   transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0s linear 0.2s;
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
 }
 
-.is-stuck .btn--float {
+.is-stuck:not(.cta-in-view) .btn--float {
   opacity: 1;
   visibility: visible;
-  transform: none;
+  pointer-events: auto;
   transition-delay: 0s;
-}
-
-.is-stuck .btn--float:hover {
-  opacity: 0.88;
 }
 
 @media (min-width: 768px) {

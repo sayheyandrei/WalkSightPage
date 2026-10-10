@@ -120,6 +120,30 @@
   order: 2;
 }
 
+/* Mobile: the three phones are a native scroll-snap gallery (phone in the middle starts centred). */
+@media (max-width: 767.98px) {
+  .explore__row {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-inline: calc((100% - var(--row-phone-w)) / 2);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .explore__row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .explore__phone {
+    flex: none;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
+
 .explore__phone--planner {
   order: 3;
 }
@@ -582,8 +606,22 @@
 /* ------------------------------------------------------------------ */
 
 .curve {
+  position: relative;
   background: var(--background);
   line-height: 0;
+}
+
+/* The curve height is fractional (width * 201 / 1440), so its bottom edge can land between device
+   pixels and let the page background show as a hairline above the next section. This strip
+   paints the inverse colour across that edge without changing layout. */
+.curve::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--inverse-background);
 }
 
 .curve img {
@@ -643,6 +681,9 @@
 }
 
 .site-footer {
+  /* overlaps the section above by 1px (padding compensates) so no hairline can show between them */
+  margin-top: -1px;
+  padding-top: 1px;
   background: var(--inverse-background);
   color: var(--inverse-font-primary);
   --footer-logo-h: 32px;
