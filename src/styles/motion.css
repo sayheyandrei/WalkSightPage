@@ -186,11 +186,6 @@ html.lenis body {
   transform: translate3d(0, calc((1 - var(--k)) * 5px), 0);
 }
 
-/* Hero phone: scroll lift (outer) + pointer tilt (inner) never overwrite each other. */
-.hero__phone-tilt {
-  display: block;
-}
-
 /* Final section: map + arrow are one rotating group around the map centre. */
 .final__map-group {
   position: absolute;

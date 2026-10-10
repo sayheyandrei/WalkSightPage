@@ -6,7 +6,6 @@ import { headerModule } from "./motion/header";
 import { orbitModule } from "./motion/orbit";
 import { parallaxModule } from "./motion/parallax";
 import { cardsModule } from "./motion/cards";
-import { heroModule } from "./motion/hero";
 import { initPointer } from "./motion/pointer";
 import { initReveal } from "./motion/reveal";
 import { wordsModule } from "./motion/words";
@@ -27,7 +26,6 @@ export function initMotion() {
   if (!reduce) {
     try {
       initPointer();
-      add(heroModule());
       add(wordsModule());
       add(exploreModule());
       add(cardsModule());
