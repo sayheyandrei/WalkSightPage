@@ -1,0 +1,21 @@
+---
+import InternalHero from "../components/InternalHero.astro";
+import LegalContent from "../components/LegalContent.astro";
+import type { LegalPage } from "../content/legal";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  page: LegalPage;
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.seoTitle} description={page.seoDescription} path={page.path} bodyClass="page-inner">
+  <main id="main">
+    <InternalHero titleLines={page.titleLines} lastUpdated={page.lastUpdated} lead={page.lead} path={page.path} />
+    <div class="container legal-wrap">
+      <LegalContent sections={page.sections} />
+    </div>
+  </main>
+</BaseLayout>

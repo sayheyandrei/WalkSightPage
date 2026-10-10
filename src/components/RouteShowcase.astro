@@ -1,0 +1,25 @@
+---
+import DownloadButton from "./DownloadButton.astro";
+import FeatureGrid from "./FeatureGrid.astro";
+---
+
+<section class="build" aria-labelledby="build-title">
+  <div class="container">
+    <div class="build__top">
+      <div class="intro intro--center build__text">
+        <h2 class="display" id="build-title">Build a walk around<br />your day</h2>
+        <p class="lead">
+          Choose how far you want to walk, how much time you have and what<br class="only-desktop" />
+          you want to see. WalkSight creates a route with interesting stops along the way.
+        </p>
+        <DownloadButton />
+      </div>
+      <div class="build__art" aria-hidden="true">
+        <img class="build__union u-light" src="/assets/svg/union-light.svg" width="1345" height="1082" alt="" loading="lazy" decoding="async" />
+        <img class="build__union build__union--dark u-dark" src="/assets/svg/union-dark.svg" width="1891" height="1510" alt="" loading="lazy" decoding="async" />
+        <img class="build__arrow u-light" src="/assets/svg/arrow-light.svg" width="301" height="301" alt="" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <FeatureGrid />
+  </div>
+</section>

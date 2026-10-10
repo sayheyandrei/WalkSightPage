@@ -1,0 +1,29 @@
+---
+import { screens } from "../content/images";
+import DownloadButton from "./DownloadButton.astro";
+import Phone from "./Phone.astro";
+---
+
+<section class="explore" aria-labelledby="explore-title">
+  <div class="container explore__inner">
+    <div class="intro explore__text">
+      <h1 class="display" id="explore-title">Explore more<br />around you</h1>
+      <p class="lead">
+        Discover landmarks, viewpoints, parks, cafés and hidden gems.<br class="only-desktop" />
+        Build a walking route around your time, distance and interests.
+      </p>
+      <DownloadButton />
+    </div>
+    <div class="explore__row">
+      <div class="explore__phone explore__phone--place">
+        <Phone screen={screens.place} label="WalkSight place details for St John's Co-Cathedral" />
+      </div>
+      <div class="explore__phone explore__phone--planner">
+        <Phone screen={screens.planner} label="WalkSight route planner with Auto and Manual modes, radius, length and time options" />
+      </div>
+      <div class="explore__phone explore__phone--route">
+        <Phone screen={screens.route} label="WalkSight turn-by-turn walking navigation" />
+      </div>
+    </div>
+  </div>
+</section>

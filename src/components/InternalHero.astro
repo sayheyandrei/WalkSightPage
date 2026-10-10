@@ -1,0 +1,39 @@
+---
+import DownloadButton from "./DownloadButton.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  titleLines: string[];
+  lastUpdated?: string;
+  lead: string;
+  path: string;
+}
+
+const { titleLines, lastUpdated, lead, path } = Astro.props;
+---
+
+<div class="hero hero--inner">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__bg-inner"></div>
+  </div>
+  <div class="container hero__inner">
+    <SiteHeader variant="inner" path={path} />
+    <div class="page-intro">
+      <div class="page-intro__head">
+        <h1 class="page-title">
+          {
+            titleLines.map((line, index) => (
+              <>
+                {index > 0 && <br />}
+                {line}
+              </>
+            ))
+          }
+        </h1>
+        {lastUpdated && <p class="page-updated">{lastUpdated}</p>}
+        <p class="page-lead">{lead}</p>
+      </div>
+      <DownloadButton />
+    </div>
+  </div>
+</div>

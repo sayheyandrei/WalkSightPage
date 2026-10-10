@@ -1,0 +1,28 @@
+---
+import { APP_STORE_URL } from "../config/site";
+
+interface Props {
+  variant?: "primary" | "inverse" | "compact" | "float";
+  class?: string;
+}
+
+const { variant = "primary", class: className = "" } = Astro.props;
+const classes = [
+  "btn",
+  variant === "inverse" && "btn--inverse",
+  variant === "compact" && "btn--compact",
+  variant === "float" && "btn--float",
+  className,
+];
+---
+
+<a
+  class:list={classes}
+  href={APP_STORE_URL || "#"}
+  rel={APP_STORE_URL ? "noopener" : undefined}
+  data-download-app
+  data-store-url-missing={APP_STORE_URL ? undefined : ""}
+>
+  <span class="btn__icon" aria-hidden="true"></span>
+  <span>Download app</span>
+</a>

@@ -1,0 +1,83 @@
+---
+import "../styles/tokens.css";
+import "../styles/base.css";
+import "../styles/home.css";
+import "../styles/legal.css";
+
+import {
+  DEFAULT_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  THEME_STORAGE_KEY,
+} from "../config/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Route path with leading and trailing slash, e.g. "/terms/". */
+  path: string;
+  bodyClass?: string;
+}
+
+const { title, description = DEFAULT_DESCRIPTION, path, bodyClass = "" } = Astro.props;
+const canonical = SITE_URL ? new URL(path, SITE_URL.replace(/\/?$/, "/")).href : undefined;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta id="meta-theme-color" name="theme-color" content="#ffffff" />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preload" href="/fonts/cal-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Runs before first paint so the stored or system theme never flashes. -->
+    <script is:inline define:vars={{ key: THEME_STORAGE_KEY }}>
+      (function () {
+        var theme = null;
+        try {
+          var stored = localStorage.getItem(key);
+          if (stored === "light" || stored === "dark") theme = stored;
+        } catch (e) {}
+        if (!theme) {
+          theme =
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", theme);
+        root.style.colorScheme = theme;
+        var meta = document.getElementById("meta-theme-color");
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#111111" : "#ffffff");
+      })();
+    </script>
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script>
+      import { initTheme } from "../scripts/theme";
+      initTheme();
+    </script>
+  </body>
+</html>

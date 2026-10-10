@@ -1,0 +1,295 @@
+/* ------------------------------------------------------------------ */
+/* Fonts                                                               */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Cal Sans";
+  src: url("/fonts/cal-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Design tokens (read from Figma variables: Base/* and Buttons/*)     */
+/* ------------------------------------------------------------------ */
+
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #ffffff;
+  --on-background: #f0f0f0;
+  --surface: #f0f0f0;
+  --hero-background: #f0f0f0;
+  --hero-swirl: #ffffff;
+
+  --font-primary: #333333;
+  --font-secondary: rgba(51, 51, 51, 0.65);
+  --font-disabled: rgba(51, 51, 51, 0.4);
+  --font-body: #202020;
+
+  --accent: #95ef1f;
+  --accent-primary: #0088ff;
+  --warning: #ffb700;
+
+  --button-primary-background: #222222;
+  --button-primary-font: #ffffff;
+  --button-secondary-background: #f0f0f0;
+  --button-secondary-font: #333333;
+
+  --round-background: #ffffff;
+  --round-icon: #333333;
+  --round-active-background: #95ef1f;
+  --round-active-icon: #333333;
+
+  --glass: rgba(255, 255, 255, 0.5);
+  --focus-ring: #0088ff;
+
+  /* The closing call-to-action sits on the opposite theme. */
+  --inverse-background: #111111;
+  --inverse-font-primary: #ffffff;
+  --inverse-font-secondary: rgba(255, 255, 255, 0.65);
+  --inverse-button-background: #ffffff;
+  --inverse-button-font: #222222;
+
+  --card-widget: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #111111;
+  --on-background: #1c1c1c;
+  --surface: #1c1c1c;
+  --hero-background: #111111;
+  --hero-swirl: #1c1c1c;
+
+  --font-primary: #ffffff;
+  --font-secondary: rgba(255, 255, 255, 0.65);
+  --font-disabled: rgba(255, 255, 255, 0.4);
+  --font-body: #e6e6e6;
+
+  --accent: #95ef1f;
+  --accent-primary: #2d9dff;
+  --warning: #ffb700;
+
+  --button-primary-background: #ffffff;
+  --button-primary-font: #222222;
+  --button-secondary-background: #252525;
+  --button-secondary-font: #ffffff;
+
+  --round-background: #222222;
+  --round-icon: #ffffff;
+  --round-active-background: #95ef1f;
+  --round-active-icon: #111111;
+
+  --glass: rgba(0, 0, 0, 0.5);
+  --focus-ring: #2d9dff;
+
+  --inverse-background: #ffffff;
+  --inverse-font-primary: #333333;
+  --inverse-font-secondary: rgba(51, 51, 51, 0.65);
+  --inverse-button-background: #222222;
+  --inverse-button-font: #ffffff;
+
+  --card-widget: #111111;
+}
+
+/* Semantic aliases used by the components */
+:root {
+  --font-display: "Cal Sans", "Arial Rounded MT Bold", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius-header: 16px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive metrics                                                  */
+/*                                                                     */
+/* Three Figma references drive everything:                            */
+/*   375  = mobile (< 768)                                             */
+/*   1440 = desktop                                                    */
+/*   1920 = large desktop                                              */
+/*                                                                     */
+/* --s  : 0.533px..1px, scales desktop sizes down for 768..1440        */
+/* --tl : 0px..1px, interpolates 1440 -> 1920 values                   */
+/* A metric is calc(D * var(--s) + (L - D) * var(--tl)).               */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --s: 1px;
+  --tl: 0px;
+
+  /* page rhythm */
+  --gutter: 16px;
+
+  /* header */
+  --hdr-py: 8px;
+  --hdr-pl: 16px;
+  --hdr-pr: 8px;
+  --hdr-inner-pad: 8px;
+  --logo-h: 32px;
+  --round: 40px;
+  --round-radius: 8px;
+  --nav-gap: 32px;
+  --menu-gap: 48px;
+
+  /* hero */
+  --hero-py: 40px;
+  --hero-gap: 64px;
+  --hero-min-h: 0px;
+  --hero-phone-w: 232.727px;
+
+  /* typography */
+  --fs-hero: 40px;
+  --fs-lead: 14px;
+  --fs-lead-b: 14px;
+  --text-gap: 24px;
+
+  /* buttons */
+  --btn-px: 24px;
+  --btn-py: 16px;
+  --btn-radius: 12px;
+  --btn-fs: 20px;
+  --btn-ls: 0.8px;
+
+  /* explore */
+  --explore-py: 48px;
+  --explore-gap: 80px;
+  --row-phone-w: 232.727px;
+
+  /* build */
+  --build-py: 64px;
+  --build-bg-h: 457px;
+  --union-w: 689px;
+  --union-x: -24.52px;
+  --union-y: -46.74px;
+  --arrow-w: 140px;
+  --arrow-x: 0px;
+  --arrow-y: 158.5px;
+
+  /* nearby */
+  --nearby-py: 48px;
+  --nearby-gap: 48px;
+  --stage-w: 800.5px;
+
+  /* final */
+  --final-py: 48px;
+  --final-min-h: 1000px;
+  --final-bg-w: 768px;
+  --final-bg-y: 115.48px;
+  --final-phone-w: 261.818px;
+  --final-phone-y: 134.48px;
+  --final-arrow-w: 56px;
+  --final-arrow-y: 134.45px;
+
+  /* footer */
+  --footer-py: 48px;
+  --footer-gap: 64px;
+
+  /* inside pages */
+  --page-py: 40px;
+  --page-gap: 64px;
+  --page-fs-h1: 48px;
+  --page-fs-lead: 16px;
+  --page-fs-updated: 12px;
+  --page-text-gap: 40px;
+  --page-head-gap: 24px;
+  --body-py: 48px;
+  --body-gap: 40px;
+  --body-item-gap: 16px;
+  --body-fs-h2: 32px;
+  --body-fs-p: 14px;
+  --page-max: 900px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.98px) {
+  :root {
+    --s: clamp(0.5333px, calc(100vw / 1440), 1px);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --tl: clamp(0px, calc((100vw - 1440px) / 480), 1px);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: calc(80 * var(--s) + 32 * var(--tl));
+
+    --hdr-py: calc(12px + 4 * var(--tl));
+    --hdr-pl: calc(24px + 8 * var(--tl));
+    --hdr-pr: calc(12px + 4 * var(--tl));
+    --hdr-inner-pad: calc(12px + 4 * var(--tl));
+    --logo-h: calc(40px + 8 * var(--tl));
+    --round: calc(40px + 8 * var(--tl));
+    --round-radius: calc(8px + 4 * var(--tl));
+
+    --hero-py: calc(64 * var(--s) + 48 * var(--tl));
+    --hero-gap: calc(112 * var(--s));
+    --hero-min-h: calc(900 * var(--s));
+    --hero-phone-w: calc(387.879px + 96.969 * var(--tl));
+
+    --fs-hero: max(42px, calc(80 * var(--s) + 40 * var(--tl)));
+    --fs-lead: max(15px, calc(20 * var(--s) + 20 * var(--tl)));
+    --fs-lead-b: max(16px, calc(24 * var(--s) + 16 * var(--tl)));
+    --text-gap: calc(32 * var(--s) + 8 * var(--tl));
+
+    --btn-px: calc(48 * var(--s) + 32 * var(--tl));
+    --btn-py: calc(20 * var(--s) + 12 * var(--tl));
+    --btn-radius: calc(16px + 4 * var(--tl));
+    --btn-fs: max(18px, calc(24 * var(--s) + 8 * var(--tl)));
+    --btn-ls: calc(0.04em);
+
+    --explore-py: calc(112 * var(--s));
+    --row-phone-w: calc(387.879 * var(--s) + 104.601 * var(--tl));
+
+    --build-py: calc(160 * var(--s) + 80 * var(--tl));
+    --build-bg-h: calc(582.19 * var(--s) + 229.81 * var(--tl));
+    --union-w: calc(1345.04 * var(--s) + 530.93 * var(--tl));
+    --union-x: calc(-75.07 * var(--s) - 29.63 * var(--tl));
+    --union-y: calc(-268.15 * var(--s) - 105.85 * var(--tl));
+    --arrow-w: calc(301.132 * var(--s) + 118.868 * var(--tl));
+    --arrow-x: calc(-27.25 * var(--s) - 10.75 * var(--tl));
+    --arrow-y: calc(112.75 * var(--s) + 44.51 * var(--tl));
+
+    --nearby-py: calc(64 * var(--s) + 48 * var(--tl));
+    --nearby-gap: calc(64 * var(--s));
+    --stage-w: calc(1340.84 * var(--s) + 252.16 * var(--tl));
+
+    --final-py: calc(64 * var(--s) + 48 * var(--tl));
+    --final-min-h: calc(1700 * var(--s) + 300 * var(--tl));
+    --final-bg-w: calc(1440 * var(--s) + 480 * var(--tl));
+    --final-bg-y: calc(100 * var(--s) - 100.41 * var(--tl));
+    --final-phone-w: calc(436.364 * var(--s) + 48.484 * var(--tl));
+    --final-phone-y: calc(208.81 * var(--s) + 75.65 * var(--tl));
+    --final-arrow-w: calc(96 * var(--s) + 30 * var(--tl));
+    --final-arrow-y: calc(223.94 * var(--s) + 75.65 * var(--tl));
+
+    --footer-py: calc(64 * var(--s) + 48 * var(--tl));
+    --footer-gap: calc(64 * var(--s) + 48 * var(--tl));
+
+    --page-py: calc(64 * var(--s) + 48 * var(--tl));
+    --page-gap: calc(112 * var(--s));
+    --page-fs-h1: max(48px, calc(80 * var(--s) + 40 * var(--tl)));
+    --page-fs-lead: max(18px, calc(24 * var(--s) + 8 * var(--tl)));
+    --page-fs-updated: 14px;
+    --page-text-gap: calc(40px);
+    --body-py: calc(64 * var(--s) + 48 * var(--tl));
+    --body-gap: calc(64 * var(--s));
+    --body-item-gap: 24px;
+    --body-fs-h2: calc(32px + 16 * var(--tl));
+    --body-fs-p: calc(20px + 4 * var(--tl));
+    --page-max: calc(900px + 300 * var(--tl));
+  }
+}

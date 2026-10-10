@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import { pins, screens } from "../content/images";
+import DownloadButton from "./DownloadButton.astro";
+import Phone from "./Phone.astro";
+
+// Pin positions in the 1592px reference stage of the 1920 frame (left, top).
+const pinPositions: Array<[number, number]> = [
+  [308, 1411.59],
+  [393, 612.59],
+  [1546, 868.59],
+  [1075, 996.59],
+  [1228, 386.59],
+  [222, 1014.59],
+  [424, 39.39],
+];
+const STAGE = 1592;
+const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
+---
+
+<section class="nearby" aria-labelledby="nearby-title">
+  <div class="container nearby__inner">
+    <div class="intro intro--center">
+      <h2 class="display" id="nearby-title">See what’s<br />around you</h2>
+      <p class="lead lead--b">
+        Spot interesting places nearby and head toward whatever<br class="only-desktop" />
+        catches your eye. No planning required.
+      </p>
+      <DownloadButton />
+    </div>
+    <div class="stage" aria-hidden="false">
+      <div class="stage__ring stage__ring--3" aria-hidden="true">
+        <img class="u-light" src="/assets/svg/ring-3-light.svg" width="1340" height="1340" alt="" loading="lazy" />
+        <img class="u-dark" src="/assets/svg/ring-3-dark.svg" width="1592" height="1592" alt="" loading="lazy" />
+      </div>
+      <div class="stage__ring stage__ring--2" aria-hidden="true">
+        <img class="u-light" src="/assets/svg/ring-2-light.svg" width="1010" height="1010" alt="" loading="lazy" />
+        <img class="u-dark" src="/assets/svg/ring-2-dark.svg" width="1200" height="1200" alt="" loading="lazy" />
+      </div>
+      <div class="stage__ring stage__ring--1" aria-hidden="true">
+        <img class="u-light" src="/assets/svg/ring-1-light.svg" width="673" height="673" alt="" loading="lazy" />
+        <img class="u-dark" src="/assets/svg/ring-1-dark.svg" width="800" height="800" alt="" loading="lazy" />
+      </div>
+      <div class="stage__phone">
+        <Phone screen={screens.nearby} label="WalkSight nearby view showing the closest church, 786 metres away" />
+      </div>
+      {
+        pinPositions.map(([x, y], index) => (
+          <div class="stage__pin" style={`left:${pct(x)};top:${pct(y)}`} aria-hidden="true">
+            <Image class="u-light" src={pins.light[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
+            <Image class="u-dark" src={pins.dark[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

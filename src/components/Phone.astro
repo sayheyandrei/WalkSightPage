@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import { phoneParts, type ThemedImage } from "../content/images";
+
+interface Props {
+  /** App screenshot exported from Figma, one per theme. Omit for the transparent "ring" variant. */
+  screen?: ThemedImage;
+  /** Accessible description of what the screenshot shows. */
+  label?: string;
+  variant?: "solid" | "ring";
+  /** Load immediately (above the fold) instead of lazily. */
+  eager?: boolean;
+  class?: string;
+}
+
+const { screen, label = "", variant = "solid", eager = false, class: className = "" } = Astro.props;
+const loading = eager ? "eager" : "lazy";
+---
+
+<div class:list={["phone", `phone--${variant}`, className]}>
+  {
+    variant === "solid" && screen ? (
+      <>
+        <Image class="phone__bezel" src={phoneParts.bezel} alt="" quality={92} format="webp" loading={loading} decoding="async" />
+        <div class="phone__screen">
+          <Image
+            class="u-light"
+            src={screen.light}
+            alt={label}
+            quality={90}
+            format="webp"
+            loading={loading}
+            fetchpriority={eager ? "high" : undefined}
+            decoding="async"
+          />
+          <Image class="u-dark" src={screen.dark} alt={label} quality={90} format="webp" loading="lazy" decoding="async" />
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="phone__ring">
+          <Image class="phone__bezel" src={phoneParts.bezel} alt="" quality={92} format="webp" loading="lazy" decoding="async" />
+        </div>
+        <div class="phone__sheen" />
+        <div class="phone__island">
+          <Image src={phoneParts.island} alt="" quality={95} format="webp" loading="lazy" decoding="async" />
+        </div>
+      </>
+    )
+  }
+</div>

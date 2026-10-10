@@ -1,0 +1,83 @@
+/* ------------------------------------------------------------------ */
+/* Internal pages (Terms, Privacy, Support): one reusable template      */
+/* ------------------------------------------------------------------ */
+
+.hero--inner {
+  --hero-min-h: 0px;
+}
+
+.page-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--page-text-gap);
+  width: 100%;
+  max-width: var(--page-max);
+}
+
+.page-intro__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-head-gap);
+  width: 100%;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--page-fs-h1);
+  line-height: 1;
+  color: var(--font-primary);
+}
+
+.page-updated {
+  font-size: var(--page-fs-updated);
+  line-height: 1.4;
+  color: var(--font-secondary);
+}
+
+.page-lead {
+  max-width: 1200px;
+  font-size: var(--page-fs-lead);
+  line-height: 1.3;
+  color: var(--font-secondary);
+}
+
+.legal-wrap {
+  padding-block: var(--body-py);
+}
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--body-gap);
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+
+.legal__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--body-item-gap);
+}
+
+.legal__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--body-fs-h2);
+  line-height: 1;
+  color: var(--font-primary);
+}
+
+.legal__text {
+  font-size: var(--body-fs-p);
+  line-height: 1.4;
+  color: var(--font-body);
+}
+
+.legal__text a {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+}

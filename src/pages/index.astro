@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FeatureIntro from "../components/FeatureIntro.astro";
+import FinalCta from "../components/FinalCta.astro";
+import HomeHero from "../components/HomeHero.astro";
+import NearbySection from "../components/NearbySection.astro";
+import RouteShowcase from "../components/RouteShowcase.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import StickyHeader from "../components/StickyHeader.astro";
+---
+
+<BaseLayout title="WalkSight — Explore More Around You" path="/" bodyClass="page-home">
+  <StickyHeader />
+  <main id="main">
+    <HomeHero />
+    <FeatureIntro />
+    <RouteShowcase />
+    <NearbySection />
+    <FinalCta />
+  </main>
+  <SiteFooter />
+  <script>
+    import { initStickyHeader } from "../scripts/sticky-header";
+    initStickyHeader();
+  </script>
+</BaseLayout>

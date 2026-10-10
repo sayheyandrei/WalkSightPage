@@ -1,0 +1,17 @@
+---
+import { screens } from "../content/images";
+import Phone from "./Phone.astro";
+import SiteHeader from "./SiteHeader.astro";
+---
+
+<div class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__bg-inner"></div>
+  </div>
+  <div class="container hero__inner">
+    <SiteHeader variant="home" path="/" id="site-header" />
+    <div class="hero__phone">
+      <Phone screen={screens.hero} eager label="WalkSight map showing nearby landmarks, cafés and parks around the user" />
+    </div>
+  </div>
+</div>

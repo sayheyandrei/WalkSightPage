@@ -1,0 +1,12 @@
+---
+/** Two separate controls (sun / moon). The active state is driven by html[data-theme]. */
+---
+
+<div class="theme-controls" role="group" aria-label="Color theme">
+  <button type="button" class="round-btn round-btn--sun" data-theme-set="light" aria-label="Use light theme" aria-pressed="true">
+    <span class="round-btn__icon" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="round-btn round-btn--moon" data-theme-set="dark" aria-label="Use dark theme" aria-pressed="false">
+    <span class="round-btn__icon" aria-hidden="true"></span>
+  </button>
+</div>
