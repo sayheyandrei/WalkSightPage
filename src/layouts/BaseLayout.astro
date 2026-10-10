@@ -45,8 +45,8 @@ const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <link rel="icon" type="image/png" sizes="32x32" href={withBase("/favicon-32.png")} />
-    <link rel="icon" type="image/png" sizes="192x192" href={withBase("/icon-192.png")} />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" type="image/png" href={withBase("/favicon.png")} />
     <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
 
     <link rel="preload" href={withBase("/fonts/cal-sans-latin-400-normal.woff2")} as="font" type="font/woff2" crossorigin />
