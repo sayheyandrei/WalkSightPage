@@ -103,63 +103,22 @@ html.lenis body {
 /* ------------------------------------------------------------------ */
 
 .btn {
-  transition:
-    opacity 0.4s var(--ease-out),
-    transform 0.6s var(--ease-out);
+  transition: opacity 0.4s var(--ease-out);
 }
 
 .round-btn {
   transition:
     background-color 0.3s var(--ease-out),
-    transform 0.5s var(--ease-out);
+    opacity 0.4s var(--ease-out);
 }
 
+/* Hover feedback stays spatially stable: colour / opacity only, no movement. */
 @media (hover: hover) {
-  .btn:not(.btn--float):hover {
-    transform: translateY(-1px);
-  }
-
   .round-btn:hover {
-    transform: translateY(-1px) scale(1.05);
+    opacity: 0.8;
   }
 }
 
-/* Feature cards: very soft, very large 5% black shadow, scaled with the grid. */
-.card {
-  --shadow-y: 12px;
-  --shadow-blur: 44px;
-  z-index: 0;
-  transition:
-    box-shadow 0.6s var(--ease-out),
-    z-index 0s linear 0.6s;
-}
-
-@media (min-width: 1100px) {
-  .card {
-    --shadow-y: calc(40 * var(--cu) + 24 * var(--tl));
-    --shadow-blur: calc(130 * var(--cu) + 90 * var(--tl));
-  }
-}
-
-@media (hover: hover) {
-  .card:hover {
-    z-index: 2;
-    box-shadow: 0 var(--shadow-y) var(--shadow-blur) 0 rgba(0, 0, 0, 0.05);
-    transition-delay: 0s;
-  }
-}
-
-.card:focus-within {
-  z-index: 2;
-  box-shadow: 0 var(--shadow-y) var(--shadow-blur) 0 rgba(0, 0, 0, 0.05);
-  transition-delay: 0s;
-}
-
-/* The shadow must not be clipped by the section. */
-.build {
-  overflow: visible;
-  overflow-x: clip;
-}
 
 /* ------------------------------------------------------------------ */
 /* Scroll-linked build artwork                                         */
@@ -203,12 +162,38 @@ html.lenis body {
   }
 
   .btn,
-  .round-btn,
-  .card {
+  .round-btn {
     transition: none;
   }
 
   .site-header.is-fixed .site-header__cta {
     animation: none;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Word-by-word description reveal (driven by --p, 0..1, per block)    */
+/* ------------------------------------------------------------------ */
+
+.motion-ok [data-words]:not(.words-ready) {
+  visibility: hidden;
+}
+
+.words .w {
+  --k: clamp(0, (var(--p, 1) - var(--s, 0)) / 0.3, 1);
+  display: inline-block;
+  opacity: calc(0.15 + 0.85 * var(--k));
+  transform: translate3d(0, calc((1 - var(--k)) * 5px), 0);
+}
+
+/* Hero phone: scroll lift (outer) + pointer tilt (inner) never overwrite each other. */
+.hero__phone-tilt {
+  display: block;
+}
+
+/* Final section: map + arrow are one rotating group around the map centre. */
+.final__map-group {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% calc(var(--final-bg-y) + var(--final-bg-w) * 0.5208);
 }

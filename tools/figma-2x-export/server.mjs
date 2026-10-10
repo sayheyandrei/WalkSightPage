@@ -1,5 +1,5 @@
-import http from 'node:http'; import fs from 'node:fs';
-const out = new URL('./out/', import.meta.url).pathname;
+import http from 'node:http'; import fs from 'node:fs'; import { fileURLToPath } from 'node:url';
+const out = fileURLToPath(new URL('./out/', import.meta.url));
 fs.mkdirSync(out, { recursive: true });
 http.createServer((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); res.setHeader('Access-Control-Allow-Headers', '*');

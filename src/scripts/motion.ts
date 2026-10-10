@@ -5,7 +5,11 @@ import { exploreModule } from "./motion/explore";
 import { headerModule } from "./motion/header";
 import { orbitModule } from "./motion/orbit";
 import { parallaxModule } from "./motion/parallax";
+import { cardsModule } from "./motion/cards";
+import { heroModule } from "./motion/hero";
+import { initPointer } from "./motion/pointer";
 import { initReveal } from "./motion/reveal";
+import { wordsModule } from "./motion/words";
 import type { Frame, MotionModule } from "./motion/types";
 
 /**
@@ -22,7 +26,11 @@ export function initMotion() {
 
   if (!reduce) {
     try {
+      initPointer();
+      add(heroModule());
+      add(wordsModule());
       add(exploreModule());
+      add(cardsModule());
       add(buildModule());
       add(curveModule());
       add(orbitModule());
@@ -31,6 +39,7 @@ export function initMotion() {
     } catch (error) {
       console.error("Motion setup failed; showing the static page", error);
       document.documentElement.classList.remove("motion-ok");
+      document.querySelectorAll("[data-words]").forEach((el) => el.classList.add("words-ready"));
     }
   }
 

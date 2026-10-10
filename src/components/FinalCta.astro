@@ -14,22 +14,24 @@ import Phone from "./Phone.astro";
 </div>
 
 <section class="final" aria-labelledby="final-title" data-final>
-  <div class="final__bg" aria-hidden="true" data-final-map>
+  <div class="final__map-group" aria-hidden="true" data-final-map-group>
+  <div class="final__bg" data-final-map>
     <img class="u-light" src={withBase("/assets/svg/final-bg-light.svg")} width="1440" height="1500" alt="" loading="lazy" decoding="async" />
     <img class="u-dark" src={withBase("/assets/svg/final-bg-dark.svg")} width="1920" height="2000" alt="" loading="lazy" decoding="async" />
+  </div>
+  <img class="final__arrow u-light" src={withBase("/assets/svg/final-arrow-light.svg")} width="96" height="96" alt="" loading="lazy" decoding="async" />
+  <img class="final__arrow u-dark" src={withBase("/assets/svg/final-arrow-dark.svg")} width="126" height="126" alt="" loading="lazy" decoding="async" />
   </div>
   <div class="container final__inner">
     <div class="intro intro--center reveal">
       <h2 class="display" id="final-title">Explore more<br />around you</h2>
-      <p class="lead lead--b">
+      <p class="lead lead--b" data-words>
         Discover landmarks, viewpoints, parks, cafés and hidden gems.<br class="only-desktop" />
         Build a walking route around your time, distance and interests.
       </p>
       <DownloadButton variant="inverse" />
     </div>
   </div>
-  <img class="final__arrow u-light" data-final-arrow src={withBase("/assets/svg/final-arrow-light.svg")} width="96" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  <img class="final__arrow u-dark" data-final-arrow src={withBase("/assets/svg/final-arrow-dark.svg")} width="126" height="126" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="final__phone" aria-hidden="true" data-final-phone>
     <Phone variant="ring" />
   </div>

@@ -26,9 +26,9 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
   <article class="card card--route">
     <div class="card__head">
       <h3 class="card__title">Follow your route</h3>
-      <p class="card__text">Get clear guidance and move from one stop to the next.</p>
+      <p class="card__text" data-words>Get clear guidance and move from one stop to the next.</p>
     </div>
-    <div class="card__media card__media--route">
+    <div class="card__media card__media--route" data-card-art="down">
       <img class="u-light" src={route.src} {...route.attributes} loading="lazy" decoding="async" alt="WalkSight navigation view with the next turn, the route on the map and the Next stop button" />
       <img class="u-dark" src={routeDark.src} {...routeDark.attributes} loading="lazy" decoding="async" alt="WalkSight navigation view with the next turn, the route on the map and the Next stop button" />
     </div>
@@ -37,9 +37,9 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
   <article class="card card--stop">
     <div class="card__head">
       <h3 class="card__title">Know your route<br />at a glance</h3>
-      <p class="card__text">See your stops, walking time, distance and steps before you go.</p>
+      <p class="card__text" data-words>See your stops, walking time, distance and steps before you go.</p>
     </div>
-    <div class="card__crop card__crop--stop">
+    <div class="card__crop card__crop--stop" data-card-art="right">
       <picture class="u-light">
         <source media="(min-width: 1880px)" srcset={stop.src} />
         <img src={stopD.src} {...stopD.attributes} loading="lazy" decoding="async" alt="Route stop card: City Gate, 15 minutes, 6.8 kilometres, 2,500 steps" />
@@ -51,9 +51,9 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
   <article class="card card--stats">
     <div class="card__head">
       <h3 class="card__title">See how much you’ve explored</h3>
-      <p class="card__text">Track your walking distance, steps, discovered places and countries over time.</p>
+      <p class="card__text" data-words>Track your walking distance, steps, discovered places and countries over time.</p>
     </div>
-    <div class="card__crop card__crop--stats">
+    <div class="card__crop card__crop--stats" data-card-art="right">
       <picture class="u-light">
         <source media="(min-width: 1880px)" srcset={stats.src} />
         <img src={statsD.src} {...statsD.attributes} loading="lazy" decoding="async" alt="Countries explored: Malta, Germany and Finland" />
@@ -67,9 +67,9 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
   <article class="card card--place">
     <div class="card__head">
       <h3 class="card__title card__title--xl">Discover<br class="only-desktop" /> every place</h3>
-      <p class="card__text card__text--lg">Learn about the places you find and what makes each stop worth exploring.</p>
+      <p class="card__text card__text--lg" data-words>Learn about the places you find and what makes each stop worth exploring.</p>
     </div>
-    <div class="card__media card__media--place">
+    <div class="card__media card__media--place" data-card-art="down">
       <picture class="u-light">
         <source media="(max-width: 1099px)" srcset={placeM.src} width={placeM.attributes.width} height={placeM.attributes.height} />
         <img src={place.src} {...place.attributes} loading="lazy" decoding="async" alt="Place details sheet for St John's Co-Cathedral with a photo, description and Add to route button" />

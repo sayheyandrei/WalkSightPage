@@ -31,7 +31,7 @@ const { titleLines, lastUpdated, lead, path } = Astro.props;
           }
         </h1>
         {lastUpdated && <p class="page-updated">{lastUpdated}</p>}
-        <p class="page-lead">{lead}</p>
+        <p class="page-lead" data-words>{lead}</p>
       </div>
       <DownloadButton />
     </div>

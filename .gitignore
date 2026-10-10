@@ -6,3 +6,4 @@ dist/
 .env
 .env.*
 !.env.example
+tools/figma-2x-export/out/

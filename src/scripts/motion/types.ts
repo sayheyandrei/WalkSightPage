@@ -20,3 +20,10 @@ export const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max
 
 /** Document-space top of an element that is not itself being transformed. */
 export const docTop = (el: Element) => el.getBoundingClientRect().top + window.scrollY;
+
+/** Document-space top from layout offsets only, so CSS transforms (reveal, parallax) don't skew it. */
+export const layoutTop = (el: HTMLElement) => {
+  let y = 0;
+  for (let node: HTMLElement | null = el; node; node = node.offsetParent as HTMLElement | null) y += node.offsetTop;
+  return y;
+};

@@ -13,9 +13,9 @@ interface Ring {
 }
 
 const RINGS: Ring[] = [
-  { maxRadius: 500, direction: 1, period: 42 }, // inner
-  { maxRadius: 700, direction: -1, period: 53 }, // middle
-  { maxRadius: Infinity, direction: 1, period: 64 }, // outer
+  { maxRadius: 500, direction: 1, period: 80 }, // inner
+  { maxRadius: 700, direction: -1, period: 120 }, // middle
+  { maxRadius: Infinity, direction: 1, period: 160 }, // outer
 ];
 
 /**

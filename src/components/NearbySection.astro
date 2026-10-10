@@ -23,7 +23,7 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
   <div class="container nearby__inner">
     <div class="intro intro--center reveal">
       <h2 class="display" id="nearby-title">See what’s<br />around you</h2>
-      <p class="lead lead--b">
+      <p class="lead lead--b" data-words>
         Spot interesting places nearby and head toward whatever<br class="only-desktop" />
         catches your eye. No planning required.
       </p>
@@ -48,8 +48,8 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
       {
         pinPositions.map(([x, y], index) => (
           <div class="stage__pin" style={`left:${pct(x)};top:${pct(y)}`} data-pin-x={x} data-pin-y={y} aria-hidden="true">
-            <Image class="u-light" src={pins.light[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
-            <Image class="u-dark" src={pins.dark[index]} alt="" width={72} height={72} quality={95} format="webp" loading="lazy" />
+            <Image class="u-light" src={pins.light[index]} alt="" width={144} height={144} quality={95} format="webp" loading="lazy" />
+            <Image class="u-dark" src={pins.dark[index]} alt="" width={144} height={144} quality={95} format="webp" loading="lazy" />
           </div>
         ))
       }

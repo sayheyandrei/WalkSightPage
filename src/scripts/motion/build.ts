@@ -1,6 +1,6 @@
 import { clamp, docTop, type MotionModule } from "./types";
 
-/** "Build a walk": map + arrow rotate together from -5deg to +5deg around their designed angle. */
+/** "Build a walk": map + arrow rotate together from -10deg to +10deg around their designed angle. */
 export function buildModule(): MotionModule | null {
   const art = document.querySelector<HTMLElement>("[data-build-art]");
   const spin = document.querySelector<HTMLElement>("[data-build-spin]");
@@ -18,7 +18,7 @@ export function buildModule(): MotionModule | null {
     },
     update({ scroll, vh }) {
       const progress = clamp((vh - (top - scroll)) / (vh + height));
-      const angle = Math.round((progress - 0.5) * 10 * 1000) / 1000;
+      const angle = Math.round((progress - 0.5) * 20 * 1000) / 1000;
       if (angle === last) return;
       last = angle;
       const active = progress > 0 && progress < 1;

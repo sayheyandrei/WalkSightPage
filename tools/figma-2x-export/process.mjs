@@ -43,7 +43,8 @@ for (const [name, dest, crop, kind] of jobs) {
   if (kind === "screen") {
     const w = meta.width, h = meta.height;
     const iw = Math.round(w * ISLAND.width), ih = Math.round(h * ISLAND.height);
-    const overlay = await sharp(island).resize(iw, ih).toBuffer();
+    const pill = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${iw}" height="${ih}"><rect width="${iw}" height="${ih}" rx="${ih / 2}" fill="#fff"/></svg>`);
+    const overlay = await sharp(island).resize(iw, ih).composite([{ input: pill, blend: "dest-in" }]).png().toBuffer();
     buffer = await sharp(buffer).composite([{ input: overlay, left: Math.round(w * ISLAND.left), top: Math.round(h * ISLAND.top) }]).png().toBuffer();
   }
   const target = path.join(outRoot, dest);
