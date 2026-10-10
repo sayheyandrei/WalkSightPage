@@ -6,10 +6,10 @@ import { fileURLToPath } from "node:url";
 const dist = fileURLToPath(new URL("../dist/", import.meta.url));
 const routes = ["/", "/terms/", "/privacy/", "/support/"];
 const titles = {
-  "/": "WalkSight — Explore More Around You",
-  "/terms/": "WalkSight — Terms of Service",
-  "/privacy/": "WalkSight — Privacy Policy",
-  "/support/": "WalkSight — Support",
+  "/": "Walk&Sight — Explore More Around You",
+  "/terms/": "Walk&Sight — Terms of Service",
+  "/privacy/": "Walk&Sight — Privacy Policy",
+  "/support/": "Walk&Sight — Support",
 };
 const failures = [];
 const check = (ok, message) => ok || failures.push(message);
@@ -26,7 +26,7 @@ for (const route of routes) {
   check(existsSync(file), `${route}: missing ${file}`);
   if (!existsSync(file)) continue;
   const html = readFileSync(file, "utf8");
-  check(html.includes(`<title>${titles[route]}</title>`), `${route}: wrong <title>`);
+  check(html.includes(`<title>${titles[route].replace(/&/g, "&amp;")}</title>`), `${route}: wrong <title>`);
   check((html.match(/<h1[\s>]/g) ?? []).length === 1, `${route}: expected exactly one <h1>`);
   if (route === "/") {
     check((html.match(/<header[\s>]/g) ?? []).length === 1, "/: expected exactly one <header> (no duplicate sticky header)");

@@ -3,7 +3,7 @@
  * Every "Download app" control reads APP_STORE_URL from here.
  */
 
-export const SITE_NAME = "WalkSight";
+export const SITE_NAME = "Walk&Sight";
 
 /**
  * Public URL of the site including its base path, with trailing slash.
@@ -20,7 +20,7 @@ export function withBase(path: string): string {
 }
 
 /**
- * App Store listing URL. WalkSight has no public App Store ID yet, so this is
+ * App Store listing URL. Walk&Sight has no public App Store ID yet, so this is
  * intentionally empty instead of an invented link. Set it once the listing is
  * live: all "Download app" buttons and the footer QR code follow automatically.
  */

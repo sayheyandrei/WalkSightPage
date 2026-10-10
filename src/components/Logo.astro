@@ -18,12 +18,12 @@ const [w, h] = tone === "header" ? [150, 48] : [150, 48];
 
 {
   link ? (
-    <a class:list={["logo", className]} href={withBase("/")} aria-label="WalkSight home">
+    <a class:list={["logo", className]} href={withBase("/")} aria-label="Walk&amp;Sight home">
       <img class="u-light" src={light} width={w} height={h} alt="" />
       <img class="u-dark" src={dark} width={w} height={h} alt="" />
     </a>
   ) : (
-    <div class:list={["logo", className]} role="img" aria-label="WalkSight">
+    <div class:list={["logo", className]} role="img" aria-label="Walk&amp;Sight">
       <img class="u-light" src={light} width={w} height={h} alt="" />
       <img class="u-dark" src={dark} width={w} height={h} alt="" />
     </div>

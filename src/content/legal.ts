@@ -1,9 +1,9 @@
 /**
  * Copy for the three internal pages. It describes the behaviour of the current
- * WalkSight iOS app (checked against the native Release code):
+ * Walk&Sight iOS app (checked against the native Release code):
  *
  * - no account, no CloudKit, no subscription or in-app purchase, no ads
- * - no analytics / advertising SDKs, no WalkSight backend
+ * - no analytics / advertising SDKs, no Walk&Sight backend
  * - routes, history, statistics, discoveries, survey answers and preferences stay on the device
  * - location "While Using the App" only, never in the background
  * - Apple MapKit (default routing), OpenStreetMap/Overpass, Wikipedia / Wikimedia Commons /
@@ -32,53 +32,53 @@ const lastUpdated = `Last updated: ${LEGAL_LAST_UPDATED}`;
 
 export const terms: LegalPage = {
   path: "/terms/",
-  seoTitle: "WalkSight — Terms of Service",
+  seoTitle: "Walk&Sight — Terms of Service",
   seoDescription:
-    "The terms that govern your use of the WalkSight app and website: routes and safety, location, your data and availability.",
+    "The terms that govern your use of the Walk&Sight app and website: routes and safety, location, your data and availability.",
   titleLines: ["Terms", "of Service"],
   lastUpdated,
-  lead: "Welcome to WalkSight. These Terms of Service govern your use of the WalkSight app and website. By using WalkSight, you agree to these terms. If you do not agree, please do not use the app or website.",
+  lead: "Welcome to Walk&Sight. These Terms of Service govern your use of the Walk&Sight app and website. By using Walk&Sight, you agree to these terms. If you do not agree, please do not use the app or website.",
   sections: [
     {
-      title: "Using WalkSight",
+      title: "Using Walk&Sight",
       paragraphs: [
-        "WalkSight helps you discover nearby places, create walking routes, navigate between stops and review your walking history and statistics. The app is intended for personal, informational and recreational use.",
+        "Walk&Sight helps you discover nearby places, create walking routes, navigate between stops and review your walking history and statistics. The app is intended for personal, informational and recreational use.",
       ],
     },
     {
       title: "Routes and safety",
       paragraphs: [
-        "Walking routes, directions, distances, travel times and place information may be incomplete, delayed or inaccurate. WalkSight does not guarantee that a suggested route is safe, accessible, open or suitable for you. Always pay attention to your surroundings and follow local laws, signs, closures and safety instructions. Do not rely on WalkSight in emergencies.",
+        "Walking routes, directions, distances, travel times and place information may be incomplete, delayed or inaccurate. Walk&Sight does not guarantee that a suggested route is safe, accessible, open or suitable for you. Always pay attention to your surroundings and follow local laws, signs, closures and safety instructions. Do not rely on Walk&Sight in emergencies.",
       ],
     },
     {
       title: "Location and third-party information",
       paragraphs: [
-        "Some features require access to your location. WalkSight also uses map, routing, place and weather information provided by services such as Apple Maps, OpenStreetMap, Wikimedia and Open-Meteo. Availability and accuracy of third-party information may change and may be subject to the providers’ own terms and policies.",
+        "Some features require access to your location. Walk&Sight also uses map, routing, place and weather information provided by services such as Apple Maps, OpenStreetMap, Wikimedia and Open-Meteo. Availability and accuracy of third-party information may change and may be subject to the providers’ own terms and policies.",
       ],
     },
     {
       title: "Your data",
       paragraphs: [
-        "WalkSight does not require an account. Saved routes, walking history, preferences and related app data are stored locally on your device. You are responsible for maintaining access to and security of your device. Removing the app may remove locally stored WalkSight data.",
+        "Walk&Sight does not require an account. Saved routes, walking history, preferences and related app data are stored locally on your device. You are responsible for maintaining access to and security of your device. Removing the app may remove locally stored Walk&Sight data.",
       ],
     },
     {
       title: "Availability",
       paragraphs: [
-        "WalkSight is provided on an “as is” and “as available” basis. Features, map coverage, place information and routing availability may change over time. We may modify, suspend or discontinue parts of the service when necessary to maintain, improve or update the app.",
+        "Walk&Sight is provided on an “as is” and “as available” basis. Features, map coverage, place information and routing availability may change over time. We may modify, suspend or discontinue parts of the service when necessary to maintain, improve or update the app.",
       ],
     },
     {
       title: "Disclaimer and limitation of liability",
       paragraphs: [
-        "To the maximum extent permitted by applicable law, WalkSight and its developer are not liable for indirect, incidental, special or consequential loss arising from your use of the app, including loss resulting from inaccurate map data, route guidance, place information or your reliance on that information.",
+        "To the maximum extent permitted by applicable law, Walk&Sight and its developer are not liable for indirect, incidental, special or consequential loss arising from your use of the app, including loss resulting from inaccurate map data, route guidance, place information or your reliance on that information.",
       ],
     },
     {
       title: "Changes to these terms",
       paragraphs: [
-        "We may update these Terms of Service from time to time. The updated version will be posted on this page with a revised “Last updated” date. Continued use of WalkSight after an update means that you accept the revised terms.",
+        "We may update these Terms of Service from time to time. The updated version will be posted on this page with a revised “Last updated” date. Continued use of Walk&Sight after an update means that you accept the revised terms.",
       ],
     },
     {
@@ -90,67 +90,67 @@ export const terms: LegalPage = {
 
 export const privacy: LegalPage = {
   path: "/privacy/",
-  seoTitle: "WalkSight — Privacy Policy",
+  seoTitle: "Walk&Sight — Privacy Policy",
   seoDescription:
-    "What WalkSight stores on your device, when location is used and which map, place and weather services receive requests. No account, no ads, no tracking.",
+    "What Walk&Sight stores on your device, when location is used and which map, place and weather services receive requests. No account, no ads, no tracking.",
   titleLines: ["Privacy", "Policy"],
   lastUpdated,
-  lead: "WalkSight is designed to work without an account and without advertising or cross-app tracking. This Privacy Policy explains what information the app uses, what stays on your device and when information is sent to services required to provide maps, routes and place details.",
+  lead: "Walk&Sight is designed to work without an account and without advertising or cross-app tracking. This Privacy Policy explains what information the app uses, what stays on your device and when information is sent to services required to provide maps, routes and place details.",
   sections: [
     {
       title: "Information stored on your device",
       paragraphs: [
-        "WalkSight stores app preferences, saved routes, walking history, route geometry and related statistics locally on your device, together with the places you have discovered, your onboarding survey answers and a temporary cache of nearby places that expires after about 14 days. This information is used to provide the app’s history, statistics and personalization features. WalkSight does not operate a user-account backend that stores this information for you.",
+        "Walk&Sight stores app preferences, saved routes, walking history, route geometry and related statistics locally on your device, together with the places you have discovered, your onboarding survey answers and a temporary cache of nearby places that expires after about 14 days. This information is used to provide the app’s history, statistics and personalization features. Walk&Sight does not operate a user-account backend that stores this information for you.",
       ],
     },
     {
       title: "Location and heading",
       paragraphs: [
-        "With your permission, WalkSight uses your location while you are using the app to show nearby places, choose your current position as a route start, build walking routes and support navigation and nearby discovery features. If you share only approximate location, WalkSight asks iOS for temporary precise location when a feature needs it. Heading information may be used to orient map and discovery views. WalkSight does not request background-location access.",
+        "With your permission, Walk&Sight uses your location while you are using the app to show nearby places, choose your current position as a route start, build walking routes and support navigation and nearby discovery features. If you share only approximate location, Walk&Sight asks iOS for temporary precise location when a feature needs it. Heading information may be used to orient map and discovery views. Walk&Sight does not request background-location access.",
       ],
     },
     {
       title: "Map, route and place requests",
       paragraphs: [
         "To provide nearby places, routes, place information and weather, the app communicates directly with map and information services. Depending on the feature you use, a request may include a map region, coordinates, route endpoints, place names or place identifiers needed to return the requested information.",
-        "WalkSight currently uses services including Apple MapKit, OpenStreetMap/Overpass, Open-Meteo and Wikimedia services such as Wikipedia, Wikimedia Commons and Wikidata. When you open the weather widget, your location is rounded to about 1 km before it is sent to Open-Meteo. OpenRouteService may also be used when that routing provider is enabled.",
+        "Walk&Sight currently uses services including Apple MapKit, OpenStreetMap/Overpass, Open-Meteo and Wikimedia services such as Wikipedia, Wikimedia Commons and Wikidata. When you open the weather widget, your location is rounded to about 1 km before it is sent to Open-Meteo. OpenRouteService may also be used when that routing provider is enabled.",
         "These providers receive requests directly from your device and may process technical information in accordance with their own privacy policies.",
       ],
     },
     {
       title: "Analytics, advertising and tracking",
       paragraphs: [
-        "WalkSight does not include third-party advertising or analytics SDKs and does not use your activity for cross-app advertising tracking.",
+        "Walk&Sight does not include third-party advertising or analytics SDKs and does not use your activity for cross-app advertising tracking.",
       ],
     },
     {
       title: "Accounts and cloud sync",
       paragraphs: [
-        "WalkSight does not require an account and does not currently provide cloud synchronization of your routes or history. Your WalkSight history and preferences remain local to the device unless you choose to share information using functionality provided by iOS or another service.",
+        "Walk&Sight does not require an account and does not currently provide cloud synchronization of your routes or history. Your Walk&Sight history and preferences remain local to the device unless you choose to share information using functionality provided by iOS or another service.",
       ],
     },
     {
       title: "Data deletion",
       paragraphs: [
-        "You can remove saved walking history from within WalkSight. Deleting WalkSight from your device removes the app’s locally stored data as part of the normal iOS app-removal process.",
+        "You can remove saved walking history from within Walk&Sight. Deleting Walk&Sight from your device removes the app’s locally stored data as part of the normal iOS app-removal process.",
       ],
     },
     {
       title: "Your choices",
       paragraphs: [
-        "You can change WalkSight’s location access at any time in iOS Settings. If location access is disabled, features that depend on your current position may be unavailable or may require you to select a location manually.",
+        "You can change Walk&Sight’s location access at any time in iOS Settings. If location access is disabled, features that depend on your current position may be unavailable or may require you to select a location manually.",
       ],
     },
     {
       title: "Changes to this policy",
       paragraphs: [
-        "We may update this Privacy Policy when WalkSight or its data practices change. The latest version will always be published on this page with its effective date.",
+        "We may update this Privacy Policy when Walk&Sight or its data practices change. The latest version will always be published on this page with its effective date.",
       ],
     },
     {
       title: "Contact",
       paragraphs: [
-        "If you have questions about privacy or data use in WalkSight, contact us at {{email}}.",
+        "If you have questions about privacy or data use in Walk&Sight, contact us at {{email}}.",
       ],
     },
   ],
@@ -158,22 +158,22 @@ export const privacy: LegalPage = {
 
 export const support: LegalPage = {
   path: "/support/",
-  seoTitle: "WalkSight — Support",
+  seoTitle: "Walk&Sight — Support",
   seoDescription:
-    "Answers about WalkSight: location access, creating a route, nearby discovery, history and statistics, and how to contact us.",
-  titleLines: ["WalkSight", "Support"],
-  lead: "Need help with WalkSight? Find answers to common questions below, or contact us if something isn’t working as expected.",
+    "Answers about Walk&Sight: location access, creating a route, nearby discovery, history and statistics, and how to contact us.",
+  titleLines: ["Walk&Sight", "Support"],
+  lead: "Need help with Walk&Sight? Find answers to common questions below, or contact us if something isn’t working as expected.",
   sections: [
     {
       title: "Getting started",
       paragraphs: [
-        "WalkSight helps you discover interesting places nearby and turn them into a walk. You can let the app build a route automatically from your time, distance and interests, or choose stops manually.",
+        "Walk&Sight helps you discover interesting places nearby and turn them into a walk. You can let the app build a route automatically from your time, distance and interests, or choose stops manually.",
       ],
     },
     {
-      title: "Why does WalkSight need my location?",
+      title: "Why does Walk&Sight need my location?",
       paragraphs: [
-        "Your location is used to show nearby places, start routes from your current position and support navigation and discovery features. WalkSight only requests location access while you are using the app. You can change this permission at any time in iOS Settings.",
+        "Your location is used to show nearby places, start routes from your current position and support navigation and discovery features. Walk&Sight only requests location access while you are using the app. You can change this permission at any time in iOS Settings.",
       ],
     },
     {
@@ -185,7 +185,7 @@ export const support: LegalPage = {
     {
       title: "Nearby discovery",
       paragraphs: [
-        "Nearby discovery helps you see interesting places around your current position and understand their direction and distance. For the best result, allow location access and make sure Location Services are enabled for WalkSight.",
+        "Nearby discovery helps you see interesting places around your current position and understand their direction and distance. For the best result, allow location access and make sure Location Services are enabled for Walk&Sight.",
       ],
     },
     {
@@ -197,12 +197,12 @@ export const support: LegalPage = {
     {
       title: "Deleting history",
       paragraphs: [
-        "You can remove individual saved walks or clear your WalkSight history from within the app. If you delete the app from your iPhone, its locally stored app data is removed by iOS.",
+        "You can remove individual saved walks or clear your Walk&Sight history from within the app. If you delete the app from your iPhone, its locally stored app data is removed by iOS.",
       ],
     },
     {
       title: "System requirements",
-      paragraphs: ["WalkSight is currently designed for iPhone and requires iOS 17 or later."],
+      paragraphs: ["Walk&Sight is currently designed for iPhone and requires iOS 17 or later."],
     },
     {
       title: "Still need help?",

@@ -13,7 +13,7 @@ const { class: className = "" } = Astro.props;
  * different app). Until the listing exists it encodes a plain-text note, so it
  * never points anywhere wrong.
  */
-const payload = APP_STORE_URL || "WalkSight. The App Store link will appear here.";
+const payload = APP_STORE_URL || "Walk&Sight. The App Store link will appear here.";
 const qr = QRCode.create(payload, { errorCorrectionLevel: "M" });
 const size = qr.modules.size;
 const data = qr.modules.data;
@@ -35,8 +35,8 @@ for (let y = 0; y < size; y++) {
   }
 }
 const label = APP_STORE_URL
-  ? "QR code: download WalkSight on the App Store"
-  : "QR code placeholder for the WalkSight App Store link";
+  ? "QR code: download Walk&Sight on the App Store"
+  : "QR code placeholder for the Walk&Sight App Store link";
 ---
 
 {
