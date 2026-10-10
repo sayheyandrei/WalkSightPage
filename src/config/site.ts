@@ -6,10 +6,18 @@
 export const SITE_NAME = "WalkSight";
 
 /**
- * Production origin, e.g. "https://example.com" (no trailing slash).
+ * Public URL of the site including its base path, with trailing slash.
  * Canonical and Open Graph URLs are only emitted once this is set.
  */
-export const SITE_URL = "";
+export const SITE_URL = "https://sayheyandrei.github.io/WalkSightPage/";
+
+/** Path the site is served from (GitHub Pages project site). Use "" for a domain root. */
+export const BASE_PATH = "/WalkSightPage";
+
+/** Prefixes a root-relative path ("/terms/", "/assets/x.svg") with BASE_PATH. */
+export function withBase(path: string): string {
+  return BASE_PATH + (path.startsWith("/") ? path : `/${path}`);
+}
 
 /**
  * App Store listing URL. WalkSight has no public App Store ID yet, so this is

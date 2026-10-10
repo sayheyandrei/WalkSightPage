@@ -9,6 +9,7 @@ import {
   SITE_NAME,
   SITE_URL,
   THEME_STORAGE_KEY,
+  withBase,
 } from "../config/site";
 
 interface Props {
@@ -20,7 +21,7 @@ interface Props {
 }
 
 const { title, description = DEFAULT_DESCRIPTION, path, bodyClass = "" } = Astro.props;
-const canonical = SITE_URL ? new URL(path, SITE_URL.replace(/\/?$/, "/")).href : undefined;
+const canonical = SITE_URL ? new URL(path.replace(/^\//, ""), SITE_URL.replace(/\/?$/, "/")).href : undefined;
 ---
 
 <!doctype html>
@@ -43,12 +44,12 @@ const canonical = SITE_URL ? new URL(path, SITE_URL.replace(/\/?$/, "/")).href :
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase("/favicon-32.png")} />
+    <link rel="icon" type="image/png" sizes="192x192" href={withBase("/icon-192.png")} />
+    <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
 
-    <link rel="preload" href="/fonts/cal-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/inter-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={withBase("/fonts/cal-sans-latin-400-normal.woff2")} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={withBase("/fonts/inter-latin-500-normal.woff2")} as="font" type="font/woff2" crossorigin />
 
     <!-- Runs before first paint so the stored or system theme never flashes. -->
     <script is:inline define:vars={{ key: THEME_STORAGE_KEY }}>

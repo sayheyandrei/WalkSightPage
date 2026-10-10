@@ -1,5 +1,5 @@
 ---
-import { NAV_LINKS } from "../config/site";
+import { NAV_LINKS, withBase } from "../config/site";
 import Logo from "./Logo.astro";
 import QrCode from "./QrCode.astro";
 ---
@@ -11,7 +11,7 @@ import QrCode from "./QrCode.astro";
         {
           NAV_LINKS.map((link) => (
             <li>
-              <a href={link.href}>{link.label}</a>
+              <a href={withBase(link.href)}>{link.label}</a>
             </li>
           ))
         }

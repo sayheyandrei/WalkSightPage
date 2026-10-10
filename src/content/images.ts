@@ -23,6 +23,7 @@ import lightCardStop from "../assets/cards/light-stop.png";
 import lightCardStopD from "../assets/cards/light-d-stop.png";
 import lightCardStats from "../assets/cards/light-stats.png";
 import lightCardStatsD from "../assets/cards/light-d-stats.png";
+import lightCardPlaceM from "../assets/cards/light-m-place.png";
 import lightCardPlace from "../assets/cards/light-place.png";
 import darkCardRoute from "../assets/cards/dark-route.png";
 import darkCardStop from "../assets/cards/dark-stop.png";
@@ -65,7 +66,8 @@ export const cards = {
   // the card, because the design crops these cards at the right edge.
   stop: { light: lightCardStop, lightD: lightCardStopD, dark: darkCardStop },
   stats: { light: lightCardStats, lightD: lightCardStatsD, dark: darkCardStats },
-  place: { light: lightCardPlace, dark: darkCardPlace },
+  // lightM is the 375 frame export, which shows more of the sheet than the desktop crop.
+  place: { light: lightCardPlace, lightM: lightCardPlaceM, dark: darkCardPlace },
 };
 
 export const pins = {

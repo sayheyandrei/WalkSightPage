@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../config/site";
 import { Image } from "astro:assets";
 import { pins, screens } from "../content/images";
 import DownloadButton from "./DownloadButton.astro";
@@ -30,16 +31,16 @@ const pct = (value: number) => `${((value / STAGE) * 100).toFixed(4)}%`;
     </div>
     <div class="stage" aria-hidden="false">
       <div class="stage__ring stage__ring--3" aria-hidden="true">
-        <img class="u-light" src="/assets/svg/ring-3-light.svg" width="1340" height="1340" alt="" loading="lazy" />
-        <img class="u-dark" src="/assets/svg/ring-3-dark.svg" width="1592" height="1592" alt="" loading="lazy" />
+        <img class="u-light" src={withBase("/assets/svg/ring-3-light.svg")} width="1340" height="1340" alt="" loading="lazy" />
+        <img class="u-dark" src={withBase("/assets/svg/ring-3-dark.svg")} width="1592" height="1592" alt="" loading="lazy" />
       </div>
       <div class="stage__ring stage__ring--2" aria-hidden="true">
-        <img class="u-light" src="/assets/svg/ring-2-light.svg" width="1010" height="1010" alt="" loading="lazy" />
-        <img class="u-dark" src="/assets/svg/ring-2-dark.svg" width="1200" height="1200" alt="" loading="lazy" />
+        <img class="u-light" src={withBase("/assets/svg/ring-2-light.svg")} width="1010" height="1010" alt="" loading="lazy" />
+        <img class="u-dark" src={withBase("/assets/svg/ring-2-dark.svg")} width="1200" height="1200" alt="" loading="lazy" />
       </div>
       <div class="stage__ring stage__ring--1" aria-hidden="true">
-        <img class="u-light" src="/assets/svg/ring-1-light.svg" width="673" height="673" alt="" loading="lazy" />
-        <img class="u-dark" src="/assets/svg/ring-1-dark.svg" width="800" height="800" alt="" loading="lazy" />
+        <img class="u-light" src={withBase("/assets/svg/ring-1-light.svg")} width="673" height="673" alt="" loading="lazy" />
+        <img class="u-dark" src={withBase("/assets/svg/ring-1-dark.svg")} width="800" height="800" alt="" loading="lazy" />
       </div>
       <div class="stage__phone">
         <Phone screen={screens.nearby} label="WalkSight nearby view showing the closest church, 786 metres away" />

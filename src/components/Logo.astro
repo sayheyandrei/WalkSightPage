@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../config/site";
 interface Props {
   /** "header": wordmark for the page background. "footer": wordmark for the inverse (closing) background. */
   tone?: "header" | "footer";
@@ -10,14 +11,14 @@ const { tone = "header", link = true, class: className = "" } = Astro.props;
 
 // Wordmark colours exported from Figma: #1C1C1C (light header), #F0F0F0 (dark header and
 // light-theme footer), #333333 (dark-theme footer, on the white closing section).
-const light = tone === "header" ? "/assets/svg/logo-1c1c1c.svg" : "/assets/svg/logo-f0f0f0.svg";
-const dark = tone === "header" ? "/assets/svg/logo-f0f0f0.svg" : "/assets/svg/logo-333333.svg";
+const light = tone === "header" ? withBase("/assets/svg/logo-1c1c1c.svg") : withBase("/assets/svg/logo-f0f0f0.svg");
+const dark = tone === "header" ? withBase("/assets/svg/logo-f0f0f0.svg") : withBase("/assets/svg/logo-333333.svg");
 const [w, h] = tone === "header" ? [150, 48] : [150, 48];
 ---
 
 {
   link ? (
-    <a class:list={["logo", className]} href="/" aria-label="WalkSight home">
+    <a class:list={["logo", className]} href={withBase("/")} aria-label="WalkSight home">
       <img class="u-light" src={light} width={w} height={h} alt="" />
       <img class="u-dark" src={dark} width={w} height={h} alt="" />
     </a>

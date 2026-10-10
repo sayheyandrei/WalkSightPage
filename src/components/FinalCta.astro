@@ -1,17 +1,18 @@
 ---
+import { withBase } from "../config/site";
 import DownloadButton from "./DownloadButton.astro";
 import Phone from "./Phone.astro";
 ---
 
 <div class="curve" aria-hidden="true">
-  <img class="u-light" src="/assets/svg/curve-light.svg" width="1440" height="201" alt="" loading="lazy" decoding="async" />
-  <img class="u-dark" src="/assets/svg/curve-dark.svg" width="1920" height="268" alt="" loading="lazy" decoding="async" />
+  <img class="u-light" src={withBase("/assets/svg/curve-light.svg")} width="1440" height="201" alt="" loading="lazy" decoding="async" />
+  <img class="u-dark" src={withBase("/assets/svg/curve-dark.svg")} width="1920" height="268" alt="" loading="lazy" decoding="async" />
 </div>
 
 <section class="final" aria-labelledby="final-title">
   <div class="final__bg" aria-hidden="true">
-    <img class="u-light" src="/assets/svg/final-bg-light.svg" width="1440" height="1500" alt="" loading="lazy" decoding="async" />
-    <img class="u-dark" src="/assets/svg/final-bg-dark.svg" width="1920" height="2000" alt="" loading="lazy" decoding="async" />
+    <img class="u-light" src={withBase("/assets/svg/final-bg-light.svg")} width="1440" height="1500" alt="" loading="lazy" decoding="async" />
+    <img class="u-dark" src={withBase("/assets/svg/final-bg-dark.svg")} width="1920" height="2000" alt="" loading="lazy" decoding="async" />
   </div>
   <div class="container final__inner">
     <div class="intro intro--center">
@@ -23,8 +24,8 @@ import Phone from "./Phone.astro";
       <DownloadButton variant="inverse" />
     </div>
   </div>
-  <img class="final__arrow u-light" src="/assets/svg/final-arrow-light.svg" width="96" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  <img class="final__arrow u-dark" src="/assets/svg/final-arrow-dark.svg" width="126" height="126" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="final__arrow u-light" src={withBase("/assets/svg/final-arrow-light.svg")} width="96" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="final__arrow u-dark" src={withBase("/assets/svg/final-arrow-dark.svg")} width="126" height="126" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="final__phone" aria-hidden="true">
     <Phone variant="ring" />
   </div>

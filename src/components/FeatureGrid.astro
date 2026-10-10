@@ -5,7 +5,7 @@ import { cards } from "../content/images";
 const optimise = (src: Parameters<typeof getImage>[0]["src"]) =>
   getImage({ src, format: "webp", quality: 90 });
 
-const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place, placeDark] =
+const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place, placeDark, placeM] =
   await Promise.all([
     optimise(cards.route.light),
     optimise(cards.route.dark),
@@ -17,6 +17,7 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
     optimise(cards.stats.dark),
     optimise(cards.place.light),
     optimise(cards.place.dark),
+    optimise(cards.place.lightM),
   ]);
 ---
 
@@ -69,7 +70,10 @@ const [route, routeDark, stop, stopD, stopDark, stats, statsD, statsDark, place,
       <p class="card__text card__text--lg">Learn about the places you find and what makes each stop worth exploring.</p>
     </div>
     <div class="card__media card__media--place">
-      <img class="u-light" src={place.src} {...place.attributes} loading="lazy" decoding="async" alt="Place details sheet for St John's Co-Cathedral with a photo, description and Add to route button" />
+      <picture class="u-light">
+        <source media="(max-width: 1099px)" srcset={placeM.src} width={placeM.attributes.width} height={placeM.attributes.height} />
+        <img src={place.src} {...place.attributes} loading="lazy" decoding="async" alt="Place details sheet for St John's Co-Cathedral with a photo, description and Add to route button" />
+      </picture>
       <img class="u-dark" src={placeDark.src} {...placeDark.attributes} loading="lazy" decoding="async" alt="Place details sheet for St John's Co-Cathedral with a photo, description and Add to route button" />
     </div>
   </article>

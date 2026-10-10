@@ -310,6 +310,8 @@
   position: relative;
   z-index: 1;
   height: auto;
+  /* hides the 1px edge column of the export so the filler continues seamlessly */
+  clip-path: inset(0 1.5px 0 0);
 }
 
 .card__crop::before {
@@ -325,10 +327,10 @@
 .card__crop--stats::after {
   content: "";
   position: absolute;
-  top: 48.4%;
+  top: 48.3%;
   right: 0;
   width: 60%;
-  height: 6.9%;
+  height: 7%;
   background: var(--warning);
 }
 
@@ -354,7 +356,12 @@
 }
 
 .card--place {
-  max-height: 480px;
+  height: 480px;
+}
+
+.card__media--place picture {
+  display: block;
+  width: 100%;
 }
 
 .card__media--place {
@@ -458,6 +465,7 @@
     grid-row: 2;
     flex-direction: row;
     align-items: center;
+    height: auto;
     max-height: none;
     gap: calc(48 * var(--cu));
   }
@@ -694,5 +702,16 @@
 
   .site-footer__qr {
     display: block;
+  }
+}
+
+/*
+ * The 375 frame only exists in the light theme. Its dark sheet is built from the 1920
+ * export, which shows less of the sheet, so the end of the crop fades into the sheet colour.
+ */
+@media (max-width: 1099.98px) {
+  .card__media--place img.u-dark {
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent);
   }
 }
