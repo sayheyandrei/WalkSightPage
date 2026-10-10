@@ -529,6 +529,7 @@
 
 .stage__ring {
   position: absolute;
+  z-index: 1;
   aspect-ratio: 1;
 }
 
@@ -557,6 +558,7 @@
 
 .stage__phone {
   position: absolute;
+  z-index: 3;
   left: 34.804%;
   top: 18.593%;
   width: 30.457%;
@@ -564,6 +566,7 @@
 
 .stage__pin {
   position: absolute;
+  z-index: 2;
   width: 4.523%;
   aspect-ratio: 1;
 }
