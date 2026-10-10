@@ -2,13 +2,10 @@ import { THEME_STORAGE_KEY } from "../config/site";
 
 type Theme = "light" | "dark";
 
-const META_COLORS: Record<Theme, string> = { light: "#f0f0f0", dark: "#050505" };
-
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.setAttribute("data-theme", theme);
   root.style.colorScheme = theme;
-  document.getElementById("meta-theme-color")?.setAttribute("content", META_COLORS[theme]);
   document.querySelectorAll<HTMLButtonElement>("[data-theme-set]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.themeSet === theme));
   });

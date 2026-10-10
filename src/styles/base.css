@@ -13,14 +13,14 @@ html {
   text-size-adjust: 100%;
   /* Outside the page (status bar, bounce, bottom safe area) the canvas shows the hero colour at the
      top and the inverse colour at the bottom, never a white page background. */
-  background: linear-gradient(to bottom, var(--hero-background) 50%, var(--inverse-background) 50%);
+  background: var(--surface-map);
   overscroll-behavior-y: none;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--background);
+  background: var(--surface-map);
   color: var(--font-primary);
   font-family: var(--font-text);
   font-weight: 500;

@@ -106,6 +106,17 @@
 
 /* Semantic aliases used by the components */
 :root {
+  /* Vertical colour map of the page (see motion/chrome.ts); defaults to the plain page colour. */
+  --surface-hero-end: 0px;
+  --surface-inverse-start: 100000px;
+  --surface-map: linear-gradient(
+    to bottom,
+    var(--hero-background) 0,
+    var(--hero-background) var(--surface-hero-end),
+    var(--background) var(--surface-hero-end),
+    var(--background) var(--surface-inverse-start),
+    var(--inverse-background) var(--surface-inverse-start)
+  );
   --font-display: "Cal Sans", "Arial Rounded MT Bold", "Helvetica Neue", Arial, sans-serif;
   --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --radius-header: 16px;
