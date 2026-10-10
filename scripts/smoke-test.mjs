@@ -33,7 +33,8 @@ for (const route of routes) {
     check(!/sticky-header/.test(html), "/: leftover sticky-header markup");
   }
   check(/name="description"/.test(html), `${route}: missing meta description`);
-  for (const href of ["/terms/", "/privacy/", "/support/"]) {
+  // the current page is plain text in the nav, so it only needs links to the other pages
+  for (const href of ["/terms/", "/privacy/", "/support/"].filter((h) => h !== route)) {
     check(html.includes(`href="${href}"`), `${route}: missing link to ${href}`);
   }
   check(!/Rivelo/i.test(html), `${route}: contains "Rivelo"`);

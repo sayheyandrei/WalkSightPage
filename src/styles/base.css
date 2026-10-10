@@ -274,8 +274,17 @@ button {
   text-underline-offset: 4px;
 }
 
-.site-nav a[aria-current="page"] {
+/* The current page is plain text: no link, no hover, not clickable. */
+.site-nav__current {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
   color: var(--font-disabled);
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
 }
 
 @media (min-width: 768px) {

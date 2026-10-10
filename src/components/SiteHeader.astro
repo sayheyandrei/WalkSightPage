@@ -31,9 +31,13 @@ const { variant = "home", path = "/", id } = Astro.props;
         {
           NAV_LINKS.map((link) => (
             <li>
-              <a href={withBase(link.href)} aria-current={path === link.href ? "page" : undefined}>
-                {link.label}
-              </a>
+              {path === link.href ? (
+                <span class="site-nav__current" aria-current="page">
+                  {link.label}
+                </span>
+              ) : (
+                <a href={withBase(link.href)}>{link.label}</a>
+              )}
             </li>
           ))
         }
