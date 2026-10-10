@@ -12,7 +12,7 @@ npm test         # route smoke test (run after build)
 ## Configuration — `src/config/site.ts`
 
 - `APP_STORE_URL` — every "Download app" button and the footer QR code read it. **Empty until the App Store listing exists** (no ID is invented). While empty, buttons link to `#` and the QR encodes a plain-text note.
-- `SITE_URL` / `BASE_PATH` — the public URL (currently the GitHub Pages project site `https://sayheyandrei.github.io/WalkSightPage/`) and its base path `/WalkSightPage`. All links and assets go through `withBase()`; set `BASE_PATH = ""` for a domain root. Canonical and Open Graph URLs derive from `SITE_URL`.
+- `SITE_URL` / `BASE_PATH` — the production URL (`https://www.walknsight.app/`, served from the domain root on Vercel) and an empty base path. All links and assets go through `withBase()`. Canonical and Open Graph URLs derive from `SITE_URL`.
 - `SUPPORT_EMAIL` — contact address used on the legal/support pages.
 
 ## Design implementation notes

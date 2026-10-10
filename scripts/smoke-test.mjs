@@ -29,17 +29,16 @@ for (const route of routes) {
   check(html.includes(`<title>${titles[route]}</title>`), `${route}: wrong <title>`);
   check((html.match(/<h1[\s>]/g) ?? []).length === 1, `${route}: expected exactly one <h1>`);
   check(/name="description"/.test(html), `${route}: missing meta description`);
-  for (const href of ["/WalkSightPage/terms/", "/WalkSightPage/privacy/", "/WalkSightPage/support/"]) {
+  for (const href of ["/terms/", "/privacy/", "/support/"]) {
     check(html.includes(`href="${href}"`), `${route}: missing link to ${href}`);
   }
   check(!/Rivelo/i.test(html), `${route}: contains "Rivelo"`);
   check(!/shopping list/i.test(html), `${route}: contains shopping-list copy`);
   check(!/figma\.com/.test(html), `${route}: references figma.com`);
-  const canonical = `https://sayheyandrei.github.io/WalkSightPage${route}`;
+  const canonical = `https://www.walknsight.app${route}`;
   check(html.includes(`<link rel="canonical" href="${canonical}">`), `${route}: wrong canonical`);
   check(html.includes(`property="og:url" content="${canonical}"`), `${route}: wrong og:url`);
-  const rootAbsolute = html.match(/(?:href|src|srcset)="\/(?!WalkSightPage\/)[^"]*"/g);
-  check(!rootAbsolute, `${route}: root-absolute URL outside the base path: ${rootAbsolute}`);
+  check(!new RegExp(["Walk" + "SightPage", "github" + "\\.io"].join("|")).test(html), `${route}: GitHub Pages reference`);
   check(!/localhost:3845/.test(html), `${route}: references the local Figma server`);
 }
 

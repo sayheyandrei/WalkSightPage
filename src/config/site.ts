@@ -9,10 +9,10 @@ export const SITE_NAME = "WalkSight";
  * Public URL of the site including its base path, with trailing slash.
  * Canonical and Open Graph URLs are only emitted once this is set.
  */
-export const SITE_URL = "https://sayheyandrei.github.io/WalkSightPage/";
+export const SITE_URL = "https://www.walknsight.app/";
 
-/** Path the site is served from (GitHub Pages project site). Use "" for a domain root. */
-export const BASE_PATH = "/WalkSightPage";
+/** Path the site is served from (empty: served from the domain root on Vercel). Use "" for a domain root. */
+export const BASE_PATH = "";
 
 /** Prefixes a root-relative path ("/terms/", "/assets/x.svg") with BASE_PATH. */
 export function withBase(path: string): string {
