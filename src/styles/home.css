@@ -88,6 +88,101 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Story: two image + text rows                                        */
+/* ------------------------------------------------------------------ */
+
+.story {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.story__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--story-text-gap);
+  padding: var(--story-py) var(--story-px);
+}
+
+.story__text {
+  display: contents;
+}
+
+.story__title {
+  order: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--story-fs-h);
+  line-height: 1;
+  color: var(--font-primary);
+}
+
+.story__media {
+  order: 1;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--story-radius);
+  isolation: isolate;
+}
+
+/* Figma: the picture is a square that overhangs the frame by 88px on the right and sits 44px above centre. */
+.story__media picture,
+.story__media img {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 44px);
+  width: calc(100% + 88px);
+  height: auto;
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+}
+
+.story__text p {
+  order: 2;
+  font-size: var(--story-fs-p);
+  line-height: var(--story-lh);
+  color: var(--font-secondary);
+}
+
+.story__text p + p {
+  /* Figma separates paragraphs with one blank line; cancel the flex gap used between heading, image and text. */
+  margin-top: calc(var(--story-fs-p) * var(--story-lh) - var(--story-text-gap));
+}
+
+@media (min-width: 768px) {
+  .story__row {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--story-gap);
+  }
+
+  .story__text {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    min-width: 0;
+    gap: var(--story-text-gap);
+  }
+
+  .story__media {
+    flex: 1 1 0;
+    min-width: 0;
+    order: 0;
+  }
+
+  .story__row--flip .story__media {
+    order: -1;
+  }
+
+  .story__title,
+  .story__text p {
+    order: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Explore                                                             */
 /* ------------------------------------------------------------------ */
 

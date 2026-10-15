@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import { story } from "../content/images";
+---
+
+<section class="story" aria-labelledby="story-title-1">
+  <div class="story__row">
+    <div class="story__text reveal">
+      <h2 class="story__title" id="story-title-1">Make that process<br />feel much simpler</h2>
+      <p data-words>
+          Walking somewhere new usually starts the same way: open a map, search for places, save a few pins, check the distance, then try to turn all of that into a route.
+      </p>
+      <p data-words>
+          Walk&amp;Sight started with one idea: choose how much time you have, how far you want to walk and what interests you. The app does the rest by building a walking route around places worth discovering.
+      </p>
+    </div>
+    <figure class="story__media reveal">
+      <Image src={story.one} alt="A couple looking around a sunlit square, one holding a phone and the other a paper map" widths={[640, 960, 1280]} sizes="(min-width: 1920px) 880px, (min-width: 768px) 50vw, 100vw" quality={80} format="webp" />
+    </figure>
+  </div>
+  <div class="story__row story__row--flip">
+    <div class="story__text reveal">
+      <h2 class="story__title">Walk&amp;Sight was designed to make discovery feel lightweight</h2>
+      <p data-words>Walk&amp;Sight was designed to make discovery feel lightweight.</p>
+      <p data-words>
+          The interface helps you make a few decisions, understand the route and start moving without turning the experience into another complex map application.
+      </p>
+    </div>
+    <figure class="story__media reveal">
+      <Image src={story.two} alt="A smiling couple checking a route on a phone together" widths={[640, 960, 1280]} sizes="(min-width: 1920px) 880px, (min-width: 768px) 50vw, 100vw" quality={80} format="webp" />
+    </figure>
+  </div>
+</section>

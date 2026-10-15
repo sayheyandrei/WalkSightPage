@@ -18,6 +18,9 @@ import darkPlanner from "../assets/phones/dark-planner.png";
 import darkRoute from "../assets/phones/dark-route.png";
 import darkNearby from "../assets/phones/dark-nearby.png";
 
+import storyOne from "../assets/story/story-1.png";
+import storyTwo from "../assets/story/story-2.png";
+
 import lightCardRoute from "../assets/cards/light-route.png";
 import lightCardStop from "../assets/cards/light-stop.png";
 import lightCardStopD from "../assets/cards/light-d-stop.png";
@@ -49,6 +52,8 @@ export interface ThemedImage {
   light: ImageMetadata;
   dark: ImageMetadata;
 }
+
+export const story = { one: storyOne, two: storyTwo };
 
 export const phoneParts = { bezel, island };
 

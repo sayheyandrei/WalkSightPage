@@ -177,6 +177,16 @@
   --explore-gap: 80px;
   --row-phone-w: 232.727px;
 
+  /* story */
+  --story-px: 16px;
+  --story-py: 48px;
+  --story-gap: 40px;
+  --story-text-gap: 40px;
+  --story-fs-h: 40px;
+  --story-fs-p: 14px;
+  --story-lh: 1.3;
+  --story-radius: 16px;
+
   /* build */
   --build-py: 64px;
   --build-bg-h: 457px;
@@ -264,6 +274,15 @@
 
     --explore-py: calc(112 * var(--s));
     --row-phone-w: calc(387.879 * var(--s) + 104.601 * var(--tl));
+
+    --story-px: calc(48 * var(--s) + 64 * var(--tl));
+    --story-py: calc(112 * var(--s));
+    --story-gap: calc(80 * var(--s) + 32 * var(--tl));
+    --story-text-gap: calc(80 * var(--s));
+    --story-fs-h: max(36px, calc(64 * var(--s) + 16 * var(--tl)));
+    --story-fs-p: max(15px, calc(20 * var(--s) + 4 * var(--tl)));
+    --story-lh: 1.4;
+    --story-radius: calc(24 * var(--s) + 8 * var(--tl));
 
     --build-py: calc(160 * var(--s) + 80 * var(--tl));
     --build-bg-h: calc(582.19 * var(--s) + 229.81 * var(--tl));
