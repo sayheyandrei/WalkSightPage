@@ -24,7 +24,7 @@ export function withBase(path: string): string {
  * intentionally empty instead of an invented link. Set it once the listing is
  * live: all "Download app" buttons and the footer QR code follow automatically.
  */
-export const APP_STORE_URL = "";
+export const APP_STORE_URL = "https://apps.apple.com/mt/app/walk-sight/id6821892928";
 
 /** Support contact, same verified address the iOS app uses (SupportContact.email). */
 export const SUPPORT_EMAIL = "sayheyandrei@gmail.com";
